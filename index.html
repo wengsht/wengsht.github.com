@@ -1,4 +1,11 @@
-<html>
-    <title>wait for me !</title>
-    <p>大师是傻X</p>
-</html>
+---
+layout: default
+title: wengsht
+---
+
+{% for post in site.posts %}
+        <div>
+            {{ post.content }}
+            <a href="{{ post.url }}">Leave a comment</a>
+        </div>
+{% endfor %}
