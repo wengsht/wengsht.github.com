@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
+<script src="/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<link href='http://fonts.googleapis.com/css?family=Ruda:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/mystyle.css" type="text/css">
+<link rel="stylesheet" href="/css/jquery-ui-1.8.18.custom.css" type="text/css"/>
+<script src="/js/jquery-ui-1.8.18.custom.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <script type="text/javascript">
+$(function() {
+        $.ajax({
+            url: "search.xml",
+            dataType: "xml",
+            success: function( xmlResponse ) {
+                var data = $( "article", xmlResponse ).map(function() {
+                    return {
+                        value: $( "title", this ).text() + ", " +
+                            ( $.trim( $( "date", this ).text() ) ),
+                        desc: $("description", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+
+                $( "#J_search" ).autocomplete({
+                    source: data,
+                    minLength: 0,
+                    select: function( event, ui ) {
+                        window.location.href = ui.item.url;
+                    }
+                });
+            }
+        });
+    });
+</script>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/index.html"><img class="little" src="/image/face.jpg" alt="hello">   wengsht</a>
+            <ul class="nav pull-left">
+                <li><a href="/blog.html">博文</a></li>
+                <li><a href="/wiki.html">笔记</a></li>
+                <li><a href="/project.html">项目</a></li>
+                <li><a href="/whoami.html">我是谁</a></li>
+            </ul>
+
+            <ul class="nav pull-right">
+                <li><a href="http://weibo.com/u/1752550681"><img class="little" src="/image/weibo.png" alt="新浪微博"></img></a></li>
+                <li><a href="http://github.com/wengsht"><img class="little" src="/image/git.png" alt="github"></img></a></li>
+                <li><a href="https://plus.google.com/u/0/"><img class="little" src="/image/g+.png" alt="g+"></img></a></li>
+                <li><a href=""><img class="little" src="/image/rss.png" alt="RSS"></img></a></li>
+                <li><a><input id="J_search" placeholder="Simple Search"/></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div>
+            
+        <div>
+            <p>Well, it&#8217;s the holiday season, and I wanted to post an update. I managed to land a 4.0 GPA for this semester and I&#8217;m so happy that the semester is over, I&#8217;m also really excited for this upcoming semester. I have a troubleshooting course, some security courses and a placement for this upcoming semester. I should probably get onto some of the Lion courses, but I haven&#8217;t had the time to purchase the books, I&#8217;ll hopefully get that done over this break, I will have enough time to go through them.</p>
+
+<p>I also bought <a href='http://www.thinkgeek.com/geektoys/science/bbe8/'>Bucky Balls</a>, these things are addictively fun. Getting them back into the cube shape however is not, I haven&#8217;t done that yet, but it won&#8217;t be too much longer before I am able to reconstruct them into that shape. I have managed to make them into some pretty cool shapes however.</p>
+
+<p>This is what it looked like outside last night&#8230;<br /><img alt='Cold outside' src='http://dl.dropbox.com/u/15585118/Blog%20Photos/IMG_0043.jpg' /></p>
+            <a href="/2012/04/18/test.html">Leave a comment</a>
+        </div>
+
+
+        </div>
+    </div>
+
+    </body>
+        
+</html>
