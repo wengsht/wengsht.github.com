@@ -10,18 +10,13 @@ body {
 /*	background: #5a5a5a; */
     background-image: url(/image/bg2.jpeg); 
 	margin-top:60px;
-}  #nav { 
-        width:760px;
-        height:90px;
-        margin:15px 0 0 10px;
-        overflow:hidden;
-        margin-top:100px;
-        margin-left:20px;
-        filter:alpha(opacity=50);
-       background:url(/image/bg.gif) no-repeat; 
-}
+} 
 code{
 	text-shadow:none;
+}
+.blog_text
+{
+
 }
 h1,h2,h3,h4,h5,h6{
 	font-family:'Ruda', sans-serif;
