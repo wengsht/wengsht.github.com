@@ -55,14 +55,6 @@ code{
 .my_post
 {
 }
-h1,h2,h3,h4,h5,h6{
-	font-family:'Ruda', sans-serif;
-	color:#CC766D;
-	border-bottom:1px solid #777;
-}
-h1:hover{
-	color:#FF7D6E;
-}
 figure{
 	margin:0 auto;
 	width:auto;
@@ -155,4 +147,52 @@ a:hover{
     height: 35px;
     width: 35px;
     opacity:1;
+}
+.divinput input
+{
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    margin-top: 5px;
+    width: 30px;
+    height: 20px;
+}
+.divinput input:focus
+{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    margin-top: 5px;
+    width: 200px;
+    height: 20px;
+}
+.divinput
+{
+}
+.divinput .navbar-inner
+{
+    background-color: #F5F4EF;
+    height: 40px;
+}
+.divinput ul
+{
+    margin-right: 30px;
+    margin-left: 0px;
+    display: inline;
+}
+.divinput p
+{
+    margin-top: 5px;
+    margin-left: 0px;
+}
+.divinput .put-right
+{
+    float: right;
 }
