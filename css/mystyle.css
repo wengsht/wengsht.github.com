@@ -144,8 +144,8 @@ a:hover{
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
     opacity:1;
 }
 .divinput input
