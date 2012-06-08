@@ -18,6 +18,9 @@ code{
 {
 
 }
+.my_post
+{
+}
 h1,h2,h3,h4,h5,h6{
 	font-family:'Ruda', sans-serif;
 	color:#CC766D;
@@ -48,7 +51,6 @@ a{
 a:hover{
 	text-decoration:none;
 }
-
 #header_image{
 	width:930px;
 	display:block;
@@ -89,5 +91,4 @@ img.little
 {
     height: 25px;
     width: 25px;
-    
 }
