@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<articles>
-{% for post in site.posts %}
-<article>
-    <title>{{ post.title }}</title>
-    <url>{{ site.url }}{{ post.url }}</url>
-    <date>{{ post.date | date_to_utc | date: '%Y-%m-%d'}}</date>
-</article>
-{% endfor %}
+<articles xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <article>
+        <title>t</title>
+        <url>http://172.18.184.67:4000//2012/04/19/t.html</url>
+        <date>2012-04-19</date>
+    </article>
+    
+    <article>
+        <title>我的第一个博客</title>
+        <url>http://172.18.184.67:4000//2012/04/18/test.html</url>
+        <date>2012-04-18</date>
+    </article>
+    
 </articles>

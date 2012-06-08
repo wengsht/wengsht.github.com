@@ -7,85 +7,164 @@
 <script src="/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 <link href='http://fonts.googleapis.com/css?family=Ruda:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/mystyle.css" type="text/css">
-<link rel="stylesheet" href="/css/jquery-ui-1.8.18.custom.css" type="text/css"/>
-<script src="/js/jquery-ui-1.8.18.custom.js"></script>
+<script src="/js/myjs.js"></script>
 
     </head>
     <body>
         <div class="container">
-            <script type="text/javascript">
-$(function() {
-        $.ajax({
-            url: "search.xml",
-            dataType: "xml",
-            success: function( xmlResponse ) {
-                var data = $( "article", xmlResponse ).map(function() {
-                    return {
-                        value: $( "title", this ).text() + ", " +
-                            ( $.trim( $( "date", this ).text() ) ),
-                        desc: $("description", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
+            <link rel="stylesheet" href="/css/jquery-ui-1.8.18.custom.css" type="text/css" />
+<script src="/js/jquery-ui-1.8.18.custom.js"></script>
 
-                $( "#J_search" ).autocomplete({
-                    source: data,
-                    minLength: 0,
-                    select: function( event, ui ) {
-                        window.location.href = ui.item.url;
-                    }
-                });
-            }
-        });
-    });
-</script>
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top transparence" filter:alpha(opacity=10)>
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/index.html"><img class="little" src="/image/face.jpg" alt="hello">   wengsht</a>
             <ul class="nav pull-left">
-                <li><a href="/blog.html">博文</a></li>
-                <li><a href="/wiki.html">笔记</a></li>
-                <li><a href="/project.html">项目</a></li>
-                <li><a href="/whoami.html">我是谁</a></li>
+                <li><a href="/whoami.html">wengsht</a></li>
+                <li><a>|</a></li>
+                <li><a href="/index.html">Blog</a></li>
+                <li><a href="/project.html">博文</a></li>
             </ul>
 
             <ul class="nav pull-right">
-                <li><a href="http://weibo.com/u/1752550681"><img class="little" src="/image/weibo.png" alt="新浪微博"></img></a></li>
-                <li><a href="http://github.com/wengsht"><img class="little" src="/image/git.png" alt="github"></img></a></li>
-                <li><a href="https://plus.google.com/u/0/"><img class="little" src="/image/g+.png" alt="g+"></img></a></li>
-                <li><a href=""><img class="little" src="/image/rss.png" alt="RSS"></img></a></li>
-                <li><a><input id="J_search" placeholder="Simple Search"/></a></li>
+                <li><a href="http://weibo.com/u/1752550681"><img src="/image/weibo.png" alt="新浪微博"></img></a></li>
+                <li><a href="http://github.com/wengsht"><img src="/image/git.png" alt="github"></img></a></li>
+                <li><a href="https://plus.google.com/u/0/"><img src="/image/g+.png" alt="g+"></img></a></li>
+                <li><a href=""><img src="/image/rss.png" alt="RSS"></img></a></li>
+                <li><input id="J_search" placeholder="Simple Search"/></li>
             </ul>
         </div>
     </div>
 </div>
 
-        <div>
-            <hr/>
+            <hr></hr>  
+            <div class="calendar">
+    <span class="year">2012</span>
+    <span class="day">24</span>
+    <span class="month">January</span>
+    </div>
 
+
+            <div>
+                <hr/>
+
+<title>
+    好困是个好孩子
+</title>
 <div class="navbar-inner">
-    <h1>Wengsht </h1>
+    <h1>我的第一个博客 </h1>
 </div>
 <div class="well">
     <h3>18 Apr 12</h3>
-    <p>Well, it&#8217;s the holiday season, and I wanted to post an update. I managed to land a 4.0 GPA for this semester and I&#8217;m so happy that the semester is over, I&#8217;m also really excited for this upcoming semester. I have a troubleshooting course, some security courses and a placement for this upcoming semester. I should probably get onto some of the Lion courses, but I haven&#8217;t had the time to purchase the books, I&#8217;ll hopefully get that done over this break, I will have enough time to go through them.</p>
+    <br/>
+    <div>
+    <h2 id='id1'>怎么有那么奇怪的想法</h2>
 
-<p>I also bought <a href='http://www.thinkgeek.com/geektoys/science/bbe8/'>Bucky Balls</a>, these things are addictively fun. Getting them back into the cube shape however is not, I haven&#8217;t done that yet, but it won&#8217;t be too much longer before I am able to reconstruct them into that shape. I have managed to make them into some pretty cool shapes however.</p>
+<p>前天晚上听了<a href='http://guoang.github.com'>此郭</a>介绍他用的博客生成器<a href='https://github.com/mojombo/jekyll'>jekyll</a>之后，跃跃欲试啊。昨天一整天都昏昏沉沉的，于是乎昨晚11点就失眠了，于是乎就这么通宵了。</p>
 
-<p>This is what it looked like outside last night&#8230;<br /><img alt='Cold outside' src='http://dl.dropbox.com/u/15585118/Blog%20Photos/IMG_0043.jpg' /></p>
+<p>整到6点总算是恶心到了，就爬上去睡觉了。扔了篇英文的搞得大师以为是我自己写的。大师现在我把它改掉你不知道你在说什么了吧哈哈。</p>
+
+<p>想想我最开始想接触web编程是在上学期刚开始的时候，不过呢，因为种种借口我买的JS那本书现在还只看到if else，最近觉得自己确实需要一个博客。其实我之前也开过CSDN的博客，<a href='http://blog.csdn.net/rptotal'>这里</a>,哇竟然还有7000多点击= =||。不过呢，一眼就能看出来我的博文都是水题。那些要水题题解的同学们从来不会因为觉得我的代码垃圾而吐槽，当然他们拷代码从来也是不留名的。</p>
+
+<p>然后呢，我觉得CSDN不适合写心情啊写感想啊什么的，很傻X好不。</p>
+
+<p>于是乎就这样子吧。我想这个地方以后估计是长期自言自语的拉其实，要不拷点水题过来拉点击量？ <img alt='xxxxx' src='/' /></p>
+
+<h2 id='id2'>实现</h2>
+
+<p>废话那么多，说一下我的博客用到的东西吧。</p>
+
+<ul>
+<li>
+<p><a href='https://github.com/mojombo/jekyll'>jekyll</a></p>
+
+<blockquote>
+<p>必须的&#8230;话说纠结了那么一会儿才弄清楚是怎么一回事</p>
+</blockquote>
+</li>
+
+<li>
+<p><a href='http://twitter.github.com/bootstrap/'>bootstrap</a></p>
+
+<blockquote>
+<p>本来想自己学css的，还是算了。。弄个框架早点上线再来考虑这些奇怪的东西</p>
+</blockquote>
+</li>
+</ul>
+
+<h2 id='todo'>TODO</h2>
+
+<ul>
+<li>
+<p>wiki</p>
+
+<blockquote>
+<p>作笔记的地方</p>
+</blockquote>
+</li>
+
+<li>
+<p>index.html</p>
+
+<blockquote>
+<p>预览</p>
+</blockquote>
+</li>
+
+<li>
+<p>search</p>
+
+<blockquote>
+<p>搜索博文</p>
+</blockquote>
+</li>
+
+<li>
+<p>tex</p>
+
+<blockquote>
+<p>排版</p>
+</blockquote>
+</li>
+
+<li>
+<p>RSS</p>
+
+<blockquote>
+<p>RSS订阅</p>
+</blockquote>
+</li>
+</ul>
+</div>
 </div>
 
-<div id="related">
-  <h2>Related Posts</h2>
-  <ul class="posts">
-    
-  </ul>
+<div class="well">
+    <h2>Related Posts</h2>
+    <ul>
+        
+        <li><span>19 Apr 2012</span> &raquo; <a href="/2012/04/19/t.html">t</a></li>
+        
+    </ul>
+    <hr/>
+</div>
+<div class="well">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'wengsht'; // 注意，这里的 example 要替换为你自己的短域名
+/* * * 下面这些不需要改动 * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
 </div>
 
+            </div>
         </div>
-    </div>
 
     </body>
-        
+    
 </html>

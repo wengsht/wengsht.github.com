@@ -7,21 +7,53 @@
 */
 body {
 	font-size: 14pt;
-/*	background: #5a5a5a; */
-    background-image: url(/image/bg2.jpeg); 
+/*    background-image: url(/image/bg2.jpeg); */
+    background: none repeat scroll 0 0 #F5F4EF;
+    clear: both;
+    color: #000305;
+    font: 17px/24px 'Palatino','Palatino Linotype','Georgia',serif;
+    margin: 0 auto;
 	margin-top:60px;
-}  #nav { 
-        width:760px;
-        height:90px;
-        margin:15px 0 0 10px;
-        overflow:hidden;
-        margin-top:100px;
-        margin-left:20px;
-        filter:alpha(opacity=50);
-       background:url(/image/bg.gif) no-repeat; 
+    padding: 0;
+    text-align: left;
+    width: 960px;
+} 
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.571em;
+}
+h3 {
+    font-size: 1.429em;
+}
+h4 {
+    font-size: 1.286em;
+}
+h5 {
+    font-size: 1.143em;
+}
+h6 {
+    font-size: 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Vollkorn','Georgia',serif;
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 0.8em;
+}
+h3, h4, h5, h6 {
+    margin-top: 0.8em;
 }
 code{
 	text-shadow:none;
+}
+.blog_text
+{
+
+}
+.my_post
+{
 }
 h1,h2,h3,h4,h5,h6{
 	font-family:'Ruda', sans-serif;
@@ -53,7 +85,6 @@ a{
 a:hover{
 	text-decoration:none;
 }
-
 #header_image{
 	width:930px;
 	display:block;
@@ -84,15 +115,44 @@ a:hover{
 .hidden{
 	display:none;
 }
+.transparence
+{
+    opacity:0.8;
+}
+.radius
+{
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
 .date{
 	font-size:10pt;
 }
 .white-text {
 	color:#F3F3F3;
 }
-img.little
+.navbar li a img
 {
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
     height: 25px;
     width: 25px;
-    
+    opacity:0.6
+}
+.navbar li a img:hover
+{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    height: 35px;
+    width: 35px;
+    opacity:1;
 }

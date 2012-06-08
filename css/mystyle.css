@@ -117,7 +117,13 @@ a:hover{
 }
 .transparence
 {
-    opacity=0.3;
+    opacity:0.8;
+}
+.radius
+{
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .date{
 	font-size:10pt;
@@ -125,8 +131,28 @@ a:hover{
 .white-text {
 	color:#F3F3F3;
 }
-img.little
+.navbar li a img
 {
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
     height: 25px;
     width: 25px;
+    opacity:0.6
+}
+.navbar li a img:hover
+{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    height: 35px;
+    width: 35px;
+    opacity:1;
 }

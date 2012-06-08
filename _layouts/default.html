@@ -6,11 +6,19 @@
     <body>
         <div class="container">
             {% include topbar.html %}
-        <div>
-            {{ content }}
-        </div>
+            <hr></hr>  
+            <div class="calendar">
+    <span class="year">2012</span>
+    <span class="day">24</span>
+    <span class="month">January</span>
     </div>
 
+
+            <div>
+                {{ content }}
+            </div>
+        </div>
+
     </body>
-        {% include tail.html %}
+    {% include tail.html %}
 </html>
