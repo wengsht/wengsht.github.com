@@ -1,33 +1,8 @@
 <script type="text/javascript">
-$(function() {
-        $.ajax({
-            url: "search.xml",
-            dataType: "xml",
-            success: function( xmlResponse ) {
-                var data = $( "article", xmlResponse ).map(function() {
-                    return {
-                        value: $( "title", this ).text() + ", " +
-                            ( $.trim( $( "date", this ).text() ) ),
-                        desc: $("description", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
 
-                $( "#J_search" ).autocomplete({
-                    source: data,
-                    minLength: 0,
-                    select: function( event, ui ) {
-                        window.location.href = ui.item.url;
-                    }
-                });
-            }
-        });
-    });
-</script>
-<div class="navbar navbar-fixed-top">
+<div class="navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/index.html"><img class="little" src="/image/face.jpg" alt="hello">   wengsht</a>
             <ul class="nav pull-left">
                 <li><a href="/blog.html">博文</a></li>
                 <li><a href="/wiki.html">笔记</a></li>
@@ -40,7 +15,6 @@ $(function() {
                 <li><a href="http://github.com/wengsht"><img class="little" src="/image/git.png" alt="github"></img></a></li>
                 <li><a href="https://plus.google.com/u/0/"><img class="little" src="/image/g+.png" alt="g+"></img></a></li>
                 <li><a href=""><img class="little" src="/image/rss.png" alt="RSS"></img></a></li>
-                <li><a><input id="J_search" placeholder="Simple Search"/></a></li>
             </ul>
         </div>
     </div>
