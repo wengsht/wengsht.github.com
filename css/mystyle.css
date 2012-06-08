@@ -115,6 +115,10 @@ a:hover{
 .hidden{
 	display:none;
 }
+.transparence
+{
+    opacity=0.3;
+}
 .date{
 	font-size:10pt;
 }
