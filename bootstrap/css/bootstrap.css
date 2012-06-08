@@ -1800,7 +1800,7 @@ table .span24 {
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
-  border-bottom: 4px solid #000000;
+  border-bottom: 4px solid #000305;
   content: "\2191";
 }
 .dropup .dropdown-menu,
