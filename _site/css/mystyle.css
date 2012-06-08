@@ -155,7 +155,7 @@ a:hover{
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
     margin-top: 5px;
-    width: 30px;
+    width: 50px;
     height: 20px;
 }
 .divinput input:focus
@@ -187,12 +187,79 @@ a:hover{
     margin-left: 0px;
     display: inline;
 }
-.divinput p
+.divinput span
 {
-    margin-top: 5px;
-    margin-left: 0px;
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    line-height: 35px;
+    font-size:20px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
+}
+.divinput span:hover
+{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    font-size:40px;
+    text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
 .divinput .put-right
 {
     float: right;
+}
+#J_search
+{
+}
+.archive-div
+{
+    margin-left: 10px;
+    padding: 0 0 0;
+}
+.violet-archive .year2
+{ 
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    padding-top: 10px; 
+    height: 100px; 
+    width: 70px;
+    font-size: 32px; 
+    line-height: 100px;
+    background: url(../image/year.jpg) no-repeat -15px 0; 
+    text-indent: 5px; 
+    opacity: 0.7;
+}
+.violet-archive .year2:hover
+{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    font-size:100px;
+    line-height: 150px;
+    height: 200px;
+    width: 140px;
+    text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
+}
+.ui-date
+{
+    color: #666
+}
+.ui-date span, .content .v-span { padding-right: 2px; }
+.ui-date span { color: #188faa; }
+.archive-div h3
+{
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    font-size: 13px;
+    padding: 0;
 }

@@ -2924,6 +2924,7 @@ input[type="submit"].btn.btn-mini {
     float: none;
     padding: 10px 10px 11px;
     line-height: 19px;
+    font-size: 17px;
     color: #999999;
     text-decoration: none;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -2944,6 +2945,7 @@ input[type="submit"].btn.btn-mini {
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
+    font-size: 25px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
 .navbar .divider-vertical {
@@ -3908,8 +3910,4 @@ a.thumbnail:hover {
 }
 .invisible {
   visibility: hidden;
-}
-#J_search {
-    display: inline;
-    float: right;
 }

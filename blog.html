@@ -10,20 +10,40 @@ title: archive
 <div class="navbar-inner">
     <div class="container">
         <ul class="put-left">
-            <p>All posts is here.</p>
+            <span>All posts is here ({{ site.posts | size }} posts.)</span>
         </ul>
         <ul class="put-right">
-    <input id="J_search" placeholder="博文搜索">
-    </ul>
+            <input id="J_search" placeholder="博文搜索">
+        </ul>
+    </div>
 </div>
 </div>
-</div>
-
-{% for post in site.posts %}
-<div class="navbar-inner">
-    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-</div>
-<div class="well">
-    <h3>{{ post.date | date: '%d %b %y' }}</h3>
-</div>
-{% endfor %}
+<hr></hr>
+    <section>
+    {% capture post_year1 %}{{ date: '%Y' }}{% endcapture %}
+    {% capture post_month1 %}{{ date: '%Y' }}{% endcapture %}
+    <div class="violet-archive archive-div">
+        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+            {% for post in site.posts %}
+            {% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+            {% if post_year1 != post_year2 %}
+            {% assign post_year1 = post_year2 %}
+        </div>
+    </div><!-- //violet-archive -->
+    <div class="violet-archive archive-div">
+        <p class="ui-grid-2 year2">{{ post_year1 }}</p>
+        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+            {% endif %}
+            <article class="article fn-clear">
+            <div class="ui-grid-6 v-archive-tit">
+                <p class="ui-date"><span>&#8227;</span><time pubdate="{{ post.date | date: '%b %d, %Y' }}">{{ post.date | date: '%b %d' }}</time></p>
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            </div>
+            <div class="ui-grid-12 v-archive-det">
+                <p>{{ post.abstract }}</p>
+            </div>
+            </article><!-- //archive -->
+            {% endfor %}
+        </div>
+    </div><!-- //violet-archive -->
+    </section><!-- //violet-post -->
