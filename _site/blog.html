@@ -45,43 +45,7 @@
 
                 <hr></hr>  
                 <div class="ui-content">
-                    <script type="text/JavaScript">
-    $(function() {
-        $("#J_search").focus(function() {
-            $(this).addClass("v-input-large");
-        });
-        $("#J_search").blur(function() {
-            if($(this).hasClass("v-input-large")) {
-                $(this).removeClass("v-input-large");
-            }
-        });
-        $.ajax({
-            url: "search.xml",
-            dataType: "xml",
-            success: function( xmlResponse ) {
-                var data = $( "article", xmlResponse ).map(function() {
-                    return {
-                        value: $( "title", this ).text() + ", " +
-                        ( $.trim( $( "date", this ).text() ) ) +
-                        "," + $("tags", this).text() ,
-                        desc: $("description", this).text(),
-                        url: $("url", this).text(),
-                        abstract: $("abstract", this).text(),
-                    };
-                }).get();
-
-                $( "#J_search" ).autocomplete({
-                    source: data,
-                    minLength: 0,
-                    select: function( event, ui ) {
-                        window.location.href = ui.item.url;
-                    }
-                });
-            }
-        });
-    });
-</script>
-<div class="divinput">
+                    <div class="divinput">
 <div class="navbar-inner">
     <div class="container solid-bar">
         <ul class="put-left">
@@ -132,14 +96,14 @@
     </div><!-- //violet-archive -->
     <div class="violet-archive fn-clear archive-div">
         <p class="ui-grid-2 year2">2012</p>
-        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+        <div class="ui-grid-21 ui-grid-right ui-grid-bottom">
             <article class="top-article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             
                 <p class="ui-date"><span>&#8227;</span><time pubdate="Jun 09, 2012">Jun 09</time></p>
                 <h3><a class="ui-title" href="/2012/06/09/%E5%8D%9A%E5%AE%A2v2%E4%B8%8A%E7%BA%BF.html">重构后博客上线</a></h3>
             </div>
-            <div class="ui-grid-12 v-archive-det">
+            <div class="ui-grid-14 v-archive-det">
                 <p class="ui-abstract">花了两天时间找这种效果抄袭...总算作出一个自己看得顺眼的东西。也被它深深恶心到了。</p>
             </div>
             </article><!-- //archive -->
@@ -149,12 +113,12 @@
             
             
             <article class="article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             
                 <p class="ui-date"><span>&#8227;</span><time pubdate="Apr 18, 2012">Apr 18</time></p>
                 <h3><a class="ui-title" href="/2012/04/18/test.html">我的第一个博客</a></h3>
             </div>
-            <div class="ui-grid-12 v-archive-det">
+            <div class="ui-grid-14 v-archive-det">
                 <p class="ui-abstract">我的第一篇博文,介绍我为什么写博客。</p>
             </div>
             </article><!-- //archive -->
@@ -181,6 +145,8 @@
             <div class="to-top">
                 <a href="#"><img src="/image/cur.jpg" title="返回顶端" class="to-top-img"></a>
             </div>
+
+            
             
 
             <footer class="ui-foot">

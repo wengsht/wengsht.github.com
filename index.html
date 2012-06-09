@@ -1,7 +1,21 @@
 ---
 layout: default
+havesearch: true
 ---
 
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <ul class="put-left">
+            <span style="font-size: 23px">{{ site.title }}</span>
+        </ul>
+        <ul class="put-right">
+            <input id="J_search" placeholder="博文搜索">
+        </ul>
+    </div>
+</div>
+</div>
+<hr></hr>
 <section>
     {% capture post_year1 %}{{ date: '%Y' }}{% endcapture %}
     <div>
@@ -15,17 +29,17 @@ layout: default
     </div><!-- //violet-archive -->
     <div class="violet-archive fn-clear archive-div">
         <p class="ui-grid-2 year2">{{ post_year1 }}</p>
-        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+        <div class="ui-grid-21 ui-grid-right ui-grid-bottom">
             <article class="top-article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             {% else %}
             <article class="article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             {% endif %}
                 <p class="ui-date"><span>&#8227;</span><time pubdate="{{ post.date | date: '%b %d, %Y' }}">{{ post.date | date: '%b %d' }}</time></p>
                 <h3><a class="ui-title" href="{{ post.url }}">{{ post.title }}</a></h3>
             </div>
-            <div class="ui-grid-12 v-archive-det">
+            <div class="ui-grid-14 v-archive-det">
                 <p class="ui-abstract">{{ post.abstract }}</p>
             </div>
             </article><!-- //archive -->
