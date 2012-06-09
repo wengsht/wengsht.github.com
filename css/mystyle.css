@@ -209,7 +209,7 @@ a:hover{
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
     line-height: 35px;
-    font-size:20px;
+    font-size:27px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
 }
 .divinput span:hover
@@ -218,6 +218,31 @@ a:hover{
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
+    font-size:40px;
+    text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
+}
+.divinput .title-center
+{
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    line-height: 35px;
+    font-size:27px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
+    font-weight: bold;
+}
+.divinput .title-center:hover
+{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
     font-size:40px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
@@ -519,12 +544,66 @@ a:hover{
 {
     font-size: 14px;
 }
-.ui-blog h2
+.ui-blog h1,h2,h3,h4
 {
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    margin-top: 15px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
+}
+.ui-blog h2:hover,h1:hover,h3:hover,h4:hover
+{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
+}
+.ui-blog p
+{
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    opacity: 0.8;
+    font-size: 17px;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+    font-weight: 300;
     margin-top: 10px;
-
+}
+.ui-blog p:hover
+{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
 }
 .ui-content
 {
     min-height: 600px;
 }
+.archive-div .index-post
+{
+    -moz-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden; 
+    height: 100px;
+}
+.archive-div .index-post:hover
+{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    height: 500px;
+    overflow-y:scroll;  
+}
+
+
