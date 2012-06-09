@@ -544,7 +544,7 @@ a:hover{
 {
     font-size: 14px;
 }
-.ui-blog,.well h1,h2,h3,h4
+.ui-blog h1,h2,h3,h4
 {
     -moz-transition: all 0.3s ease-in;
     -webkit-transition: all 0.3s ease-in;
@@ -553,7 +553,7 @@ a:hover{
     margin-top: 15px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
 }
-.ui-blog,.well h2:hover,h1:hover,h3:hover,h4:hover
+.ui-blog h2:hover,h1:hover,h3:hover,h4:hover
 {
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
@@ -561,7 +561,7 @@ a:hover{
     transition: all 0.5s ease-in-out;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
-.ui-blog,.well p
+.ui-blog p
 {
     -moz-transition: all 0.3s ease-in;
     -webkit-transition: all 0.3s ease-in;
@@ -575,7 +575,7 @@ a:hover{
     font-weight: 300;
     margin-top: 10px;
 }
-.ui-blog,.well p:hover
+.ui-blog p:hover
 {
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
