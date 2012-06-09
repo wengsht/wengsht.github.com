@@ -524,3 +524,7 @@ a:hover{
     margin-top: 10px;
 
 }
+.ui-content
+{
+    min-height: 600px;
+}
