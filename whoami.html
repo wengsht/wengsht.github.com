@@ -2,11 +2,73 @@
 layout: default
 title: wengsht
 ---
-
 <title>
     好困是个好孩子
 </title>
 
-<div class="well">
-    <p>鬼知道。。我不玩了我要睡觉</p>
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <ul class="put-left">
+            <span>个人履历 (<span id='diary_count'>0</span> lines.)</span>
+        </ul>
+            <script type="text/JavaScript">
+                var i = 0;
+            {% for post in site.posts %}
+            {% if post.type == "diary" %}
+                i = i+1;
+            {% endif %}
+            {% endfor %}
+            document.getElementById('diary_count').innerHTML=i;
+        </script>
+        <ul class="put-right">
+            <img src="/image/psu.jpeg" class="ui-img">
+        </ul>
+    </div>
 </div>
+</div>
+<hr></hr>
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container auto-bar">
+        <div class="ui-whoami">
+            翁时涛,非中共党员.中山大学计算机系一枚学子.<br/>酷爱历史,喜欢跑步,曾经钟情ACM,无果.转战Linux,目前在广东省信息安全重点实验室做菜鸟一名.<br/>预计未来三年将在中大度过.
+    </div>
+    </div>
+</div>
+</div>
+<hr></hr>
+<section>
+    {% capture post_year1 %}{{ date: '%Y' }}{% endcapture %}
+    <div>
+        <div>
+            {% for post in site.posts %}
+            {% if post.type == "diary" %}
+            {% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+            {% if post_year1 != post_year2 %}
+            {% assign post_year1 = post_year2 %}
+        </div>
+    </div><!-- //violet-archive -->
+    <div class="violet-archive fn-clear archive-div">
+        <p class="ui-grid-2 year2">{{ post_year1 }}</p>
+        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+            <article class="top-article fn-clear">
+            <div class="ui-grid-6 v-archive-tit">
+            {% else %}
+            <article class="article fn-clear">
+            <div class="ui-grid-6 v-archive-tit">
+            {% endif %}
+                <p class="ui-date"><span>&#8227;</span><time pubdate="{{ post.date | date: '%b %d, %Y' }}">{{ post.date | date: '%b %d' }}</time></p>
+                <h3><span class="ui-title">{{ post.title }}</span></h3>
+            </div>
+            <div class="ui-grid-12 v-archive-det">
+                <p class="ui-abstract">{{ post.abstract }}</p>
+            </div>
+            </article><!-- //archive -->
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div><!-- //violet-archive -->
+    </section><!-- //violet-post -->
+
+    {% include comment.html %}

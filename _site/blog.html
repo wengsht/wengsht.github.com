@@ -42,11 +42,68 @@
     好困是个好孩子
 </title>
 
+<script type="text/JavaScript">
+    $(function() {
+        $("#J_search").focus(function() {
+            $(this).addClass("v-input-large");
+        });
+        $("#J_search").blur(function() {
+            if($(this).hasClass("v-input-large")) {
+                $(this).removeClass("v-input-large");
+            }
+        });
+        $.ajax({
+            url: "search.xml",
+            dataType: "xml",
+            success: function( xmlResponse ) {
+                var data = $( "article", xmlResponse ).map(function() {
+                    return {
+                        value: $( "title", this ).text() + ", " +
+                        ( $.trim( $( "date", this ).text() ) ) +
+                        "," + $("tags", this).text() ,
+                        desc: $("description", this).text(),
+                        url: $("url", this).text(),
+                        abstract: $("abstract", this).text(),
+                    };
+                }).get();
+
+                $( "#J_search" ).autocomplete({
+                    source: data,
+                    minLength: 0,
+                    select: function( event, ui ) {
+                        window.location.href = ui.item.url;
+                    }
+                });
+            }
+        });
+    });
+</script>
 <div class="divinput">
 <div class="navbar-inner">
-    <div class="container">
+    <div class="container solid-bar">
         <ul class="put-left">
-            <span>All posts is here (2 posts.)</span>
+        <span>All posts is here (<span id='post_count'>0</span> posts.)</span>
+            <script type="text/JavaScript">
+                var i = 0;
+            
+            
+                i = i+1;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            document.getElementById('post_count').innerHTML=i;
+        </script>
         </ul>
         <ul class="put-right">
             <input id="J_search" placeholder="博文搜索">
@@ -55,42 +112,43 @@
 </div>
 </div>
 <hr></hr>
-    <section>
+<section>
     
-    
-    <div class="violet-archive archive-div">
-        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+    <div>
+        <div>
+            
             
             
             
             
         </div>
     </div><!-- //violet-archive -->
-    <div class="violet-archive archive-div">
+    <div class="violet-archive fn-clear archive-div">
         <p class="ui-grid-2 year2">2012</p>
         <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
-            
-            <article class="article fn-clear">
+            <article class="top-article fn-clear">
             <div class="ui-grid-6 v-archive-tit">
-                <p class="ui-date"><span>&#8227;</span><time pubdate="Apr 19, 2012">Apr 19</time></p>
-                <h3><a href="/2012/04/19/t.html">t</a></h3>
-            </div>
-            <div class="ui-grid-12 v-archive-det">
-                <p></p>
-            </div>
-            </article><!-- //archive -->
             
-            
-            
-            <article class="article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
                 <p class="ui-date"><span>&#8227;</span><time pubdate="Apr 18, 2012">Apr 18</time></p>
-                <h3><a href="/2012/04/18/test.html">我的第一个博客</a></h3>
+                <h3><a class="ui-title" href="/2012/04/18/test.html">我的第一个博客</a></h3>
             </div>
             <div class="ui-grid-12 v-archive-det">
-                <p>我的第一篇博文,介绍我为什么写博客。</p>
+                <p class="ui-abstract">我的第一篇博文,介绍我为什么写博客。</p>
             </div>
             </article><!-- //archive -->
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
         </div>
     </div><!-- //violet-archive -->
@@ -98,7 +156,27 @@
 
                 </div>
             </div>
+            <div class="to-top">
+                <a href="#"><img src="/image/cur.jpg" title="返回顶端" class="to-top-img"></a>
+            </div>
 
         </body>
-        
+                <footer class="ui-foot">
+        <div class="ui-foot-inner">
+            <section class="ui-grid-13 violet-submenu">
+                <ul>
+                    <li><a href="/index.html" rel="nofollow"><span>&#8227;</span>Home</a></li>
+                    <li><a href="/blog.html" rel="bookmark"><span>&#8227;</span>Archives</a></li>
+                    <li><a href="/whoami.html" rel="bookmark"><span>&#8227;</span>Whoami</a></li>
+                </ul>
+            </section>
+            <section class="ui-grid-6 violet-theme">
+            <p>Powered by <a href="http://jekyllrb.com" target="_blank" rel="nofollow">Jekyll</a>. <br/>fork me in github. <a href="http://www.github.com/wengsht" rel="nofollow">wengsht</a>.<span class="v-tj"><script src="http://s16.cnzz.com/stat.php?id=3754334&web_id=3754334&show=pic" language="JavaScript"></script></span></p>
+            </section>
+            <section class="ui-grid-4 violet-copyright">
+            <p style="text-align: right">wengsht.<br/> 16:37 2012-06-09</p>
+            </section>
+        </div>
+    </footer>
+
     </html>

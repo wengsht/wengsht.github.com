@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <articles xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
-    <article>
-        <title>t</title>
-        <url>http://172.18.184.67:4000/2012/04/19/t.html</url>
-        <date>2012-04-19</date>
-    </article>
     
     <article>
         <title>我的第一个博客</title>
         <url>http://172.18.184.67:4000/2012/04/18/test.html</url>
         <date>2012-04-18</date>
+        <abstract>我的第一篇博文,介绍我为什么写博客。</abstract>
+        <tags>Personal</tags>
     </article>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 </articles>
