@@ -1,31 +1,49 @@
 ---
 layout: default
+isPost: true
 ---
-<hr/>
-
 <title>
     好困是个好孩子
 </title>
+<div class="divinput">
 <div class="navbar-inner">
-    <h1>{{ page.title }} </h1>
+    <div class="container solid-bar title-center">
+            <span>{{ page.title }}</span>
+    </div>
 </div>
+</div>
+
 <div class="well">
-    <h3>{{ page.date | date: '%d %b %y' }}</h3>
-    <br/>
-    <div>
-    {{ content }}
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <span class="post-abstract">{{ page.abstract }}</span>
+    </div>
 </div>
+</div>
+</div>
+
+<hr></hr>
+
+<div class="well">
+    <div class="ui-blog">
+        {{ content }}
+    </div>
 </div>
 
 <div class="well">
     <h2>Related Posts</h2>
     <ul>
         {% for post in site.related_posts limit:3 %}
+        {% if post.type == "post" %}
         <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
         {% endfor %}
     </ul>
     <hr/>
 </div>
+
+<hr></hr>
 <div class="well">
     {% include comment.html %}
 </div>

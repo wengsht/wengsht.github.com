@@ -14,7 +14,14 @@
             <div class="to-top">
                 <a href="#"><img src="/image/cur.jpg" title="返回顶端" class="to-top-img"></a>
             </div>
+            {% if page.isPost %}
+            <div class="calendar">
+                <span class="year">{{ page.date | date: '%Y' }}</span>
+                <span class="day">{{ page.date | date: '%d' }}</span>
+                <span class="month">{{ page.date | date: '%B' }}</span>
+            </div>
+            {% endif %}
 
         </body>
-            {% include tail.html %}
+        {% include tail.html %}
     </html>

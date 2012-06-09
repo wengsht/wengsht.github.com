@@ -500,3 +500,25 @@ a:hover{
     margin: 50pt;
     padding-top: 50px;
 }
+.ui-hide
+{
+    visibility: hidden;
+    height: 0px;
+}
+.title-center
+{
+    text-align: center;
+}
+.navbar-inner .post-abstract
+{
+    font-size: 14px;
+}
+.navbar-inner .post-abstract:hover
+{
+    font-size: 14px;
+}
+.ui-blog h2
+{
+    margin-top: 10px;
+
+}
