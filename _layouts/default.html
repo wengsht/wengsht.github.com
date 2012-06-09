@@ -2,6 +2,14 @@
 <html>
         <head>
             {% include header.html %}
+        <title>
+            {% if page.title %}
+            {{ page.title }}
+            {% else %}
+            {{ site.title }}
+            {% endif %}
+        </title>
+        <link href="/image/face.png" type="image/x-icon" rel="shortcut icon" />
         </head>
         <body>
             <div class="container">
