@@ -1,43 +1,8 @@
 ---
 layout: default
+havasearch: true
 ---
 
-<script type="text/JavaScript">
-    $(function() {
-        $("#J_search").focus(function() {
-            $(this).addClass("v-input-large");
-        });
-        $("#J_search").blur(function() {
-            if($(this).hasClass("v-input-large")) {
-                $(this).removeClass("v-input-large");
-            }
-        });
-        $.ajax({
-            url: "search.xml",
-            dataType: "xml",
-            success: function( xmlResponse ) {
-                var data = $( "article", xmlResponse ).map(function() {
-                    return {
-                        value: $( "title", this ).text() + ", " +
-                        ( $.trim( $( "date", this ).text() ) ) +
-                        "," + $("tags", this).text() ,
-                        desc: $("description", this).text(),
-                        url: $("url", this).text(),
-                        abstract: $("abstract", this).text(),
-                    };
-                }).get();
-
-                $( "#J_search" ).autocomplete({
-                    source: data,
-                    minLength: 0,
-                    select: function( event, ui ) {
-                        window.location.href = ui.item.url;
-                    }
-                });
-            }
-        });
-    });
-</script>
 <div class="divinput">
 <div class="navbar-inner">
     <div class="container solid-bar">
@@ -73,17 +38,17 @@ layout: default
     </div><!-- //violet-archive -->
     <div class="violet-archive fn-clear archive-div">
         <p class="ui-grid-2 year2">{{ post_year1 }}</p>
-        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+        <div class="ui-grid-21 ui-grid-right ui-grid-bottom">
             <article class="top-article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             {% else %}
             <article class="article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
             {% endif %}
                 <p class="ui-date"><span>&#8227;</span><time pubdate="{{ post.date | date: '%b %d, %Y' }}">{{ post.date | date: '%b %d' }}</time></p>
                 <h3><a class="ui-title" href="{{ post.url }}">{{ post.title }}</a></h3>
             </div>
-            <div class="ui-grid-12 v-archive-det">
+            <div class="ui-grid-14 v-archive-det">
                 <p class="ui-abstract">{{ post.abstract }}</p>
             </div>
             </article><!-- //archive -->

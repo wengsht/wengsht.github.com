@@ -45,7 +45,20 @@
 
                 <hr></hr>  
                 <div class="ui-content">
-                    <section>
+                    <div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <ul class="put-left">
+            <span style="font-size: 23px">沙漏•不倒翁</span>
+        </ul>
+        <ul class="put-right">
+            <input id="J_search" placeholder="博文搜索">
+        </ul>
+    </div>
+</div>
+</div>
+<hr></hr>
+<section>
     
     <div>
         <div>
@@ -58,18 +71,86 @@
     </div><!-- //violet-archive -->
     <div class="violet-archive fn-clear archive-div">
         <p class="ui-grid-2 year2">2012</p>
-        <div class="ui-grid-18 ui-grid-right ui-grid-bottom">
+        <div class="ui-grid-21 ui-grid-right ui-grid-bottom">
             <article class="top-article fn-clear">
-            <div class="ui-grid-6 v-archive-tit">
+            <div class="ui-grid-7 v-archive-tit">
+            
+                <p class="ui-date"><span>&#8227;</span><time pubdate="Jun 09, 2012">Jun 09</time></p>
+                <h3><a class="ui-title" href="/2012/06/09/%E5%8D%9A%E5%AE%A2v2%E4%B8%8A%E7%BA%BF.html">重构后博客上线</a></h3>
+            </div>
+            <div class="ui-grid-14 v-archive-det">
+                <p class="ui-abstract">花了两天时间找这种效果抄袭...总算作出一个自己看得顺眼的东西。也被它深深恶心到了。</p>
+            </div>
+            </article><!-- //archive -->
+            <div class="well index-post ui-blog">
+                <h2 id='id3'>近来</h2>
+
+<p>最近算比较清闲，实验室没什么任务要做，美其名曰复习期末。其实真没什么好复习，编译原理目测又是几道大水题，人工智能这种水课就更不用说了，好吧你没看错我就考两门。</p>
+
+<p>上周信安答辩+实验室静态度量器-fanotify版本实现之后就一直没什么特别的任务了， 最近干得比较多的事是看课外书。然后实在有点无聊了就想着是时候改改博客的样子不然真的没有写文章得动力了。</p>
+
+<p>于是乎花了整整两天时间搞来搞去算是出来2.0版本。</p>
+
+<h2 id='changelog'>Change-Log</h2>
+
+<ul>
+<li>
+<p>css</p>
+
+<blockquote>
+<p>这个没得说。</p>
+</blockquote>
+</li>
+
+<li>
+<p>RSS</p>
+
+<blockquote>
+<p>增加RSS订阅</p>
+</blockquote>
+</li>
+
+<li>
+<p>index</p>
+
+<blockquote>
+<p>简单预览</p>
+</blockquote>
+</li>
+
+<li>
+<p>search</p>
+
+<blockquote>
+<p>仅对文章title</p>
+</blockquote>
+</li>
+
+<li>
+<p>highlight</p>
+
+<blockquote>
+<p>利用pygment非常方便地实现</p>
+</blockquote>
+</li>
+</ul>
+            </div>
+            
+            
+            
+            
+            
+            <article class="article fn-clear">
+            <div class="ui-grid-7 v-archive-tit">
             
                 <p class="ui-date"><span>&#8227;</span><time pubdate="Apr 18, 2012">Apr 18</time></p>
                 <h3><a class="ui-title" href="/2012/04/18/test.html">我的第一个博客</a></h3>
             </div>
-            <div class="ui-grid-12 v-archive-det">
+            <div class="ui-grid-14 v-archive-det">
                 <p class="ui-abstract">我的第一篇博文,介绍我为什么写博客。</p>
             </div>
             </article><!-- //archive -->
-            <div class="well index-post">
+            <div class="well index-post ui-blog">
                 <h2 id='id1'>怎么有那么奇怪的想法</h2>
 
 <p>前天晚上听了<a href='http://guoang.github.com'>此郭</a>介绍他用的博客生成器<a href='https://github.com/mojombo/jekyll'>jekyll</a>之后，跃跃欲试啊。昨天一整天都昏昏沉沉的，于是乎昨晚11点就失眠了，于是乎就这么通宵了。</p>
@@ -177,6 +258,45 @@
             <div class="to-top">
                 <a href="#"><img src="/image/cur.jpg" title="返回顶端" class="to-top-img"></a>
             </div>
+
+            
+<script type="text/JavaScript">
+    $(function() {
+        $("#J_search").focus(function() {
+            $(this).addClass("v-input-large");
+        });
+        $("#J_search").blur(function() {
+            if($(this).hasClass("v-input-large")) {
+                $(this).removeClass("v-input-large");
+            }
+        });
+        $.ajax({
+            url: "search.xml",
+            dataType: "xml",
+            success: function( xmlResponse ) {
+                var data = $( "article", xmlResponse ).map(function() {
+                    return {
+                        value: $( "title", this ).text() + ", " +
+                        ( $.trim( $( "date", this ).text() ) ) +
+                        "," + $("tags", this).text() ,
+                        desc: $("description", this).text(),
+                        url: $("url", this).text(),
+                        abstract: $("abstract", this).text(),
+                    };
+                }).get();
+
+                $( "#J_search" ).autocomplete({
+                    source: data,
+                    minLength: 0,
+                    select: function( event, ui ) {
+                        window.location.href = ui.item.url;
+                    }
+                });
+            }
+        });
+    });
+</script>
+            
             
 
             <footer class="ui-foot">
