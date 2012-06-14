@@ -6,7 +6,7 @@
 #FF7D6E
 */
 
-@import url(pygments_trac_2.css);
+@import url(pygments_trac_1.css);
 body {
 	font-size: 14pt;
 /*    background-image: url(/image/bg2.jpeg); */
@@ -544,6 +544,11 @@ a:hover{
 {
     font-size: 14px;
 }
+.ui-blog
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .ui-blog h1,h2,h3,h4
 {
     -moz-transition: all 0.3s ease-in;
@@ -567,7 +572,7 @@ a:hover{
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
-    opacity: 0.8;
+    opacity: 0.65;
     font-size: 17px;
     font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 1.5;
@@ -608,7 +613,3 @@ a:hover{
     overflow-y:scroll;  
 }
 
-.body .div .pre
-{
-    background-color: #000305;
-}

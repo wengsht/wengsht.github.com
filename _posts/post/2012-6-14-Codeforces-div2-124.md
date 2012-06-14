@@ -49,8 +49,11 @@ D. [Infinite Maze](http://www.codeforces.com/contest/197/problem/D)
 
 <br/>
 
-{% highlight c++ linenos %}
-/* codeforces 124 div.2 D.cpp */
+{% highlight cpp linenos %}
+/*
+ *codeforces 124 div.2 D.cpp 
+ *
+*/
 #include <iostream>
 #include <queue>
 #include <cstdio>
@@ -156,6 +159,8 @@ int main()
         printf("No\n");
 }
 {% endhighlight %}
+
+<br/>
 
 [E. Paint Tree](http://www.codeforces.com/contest/197/problem/E)
 
