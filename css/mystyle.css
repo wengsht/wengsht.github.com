@@ -608,4 +608,7 @@ a:hover{
     overflow-y:scroll;  
 }
 
-
+.code
+{
+    background: #000305;
+}
