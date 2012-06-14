@@ -20,7 +20,7 @@ havesearch: true
     {% capture post_year1 %}{{ date: '%Y' }}{% endcapture %}
     <div>
         <div>
-            {% for post in site.posts %}
+            {% for post in site.posts limit:10 %}
             {% if post.type == "post" %}
             {% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
             {% if post_year1 != post_year2 %}
