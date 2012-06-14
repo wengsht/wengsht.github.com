@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Codeforces Round 124(Div.2) 总结
-abstract:
+abstract: 一场codeforces - div2 的总结
 
 tags:
 - Personal
