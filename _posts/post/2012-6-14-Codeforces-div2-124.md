@@ -47,6 +47,7 @@ D. [Infinite Maze](http://www.codeforces.com/contest/197/problem/D)
 
 必要性:因为可以走无限远，而小地图大小有限，所以必然可以走到相同的点。想到这一层就敲之结果也过了，代码如下:
 
+<br/>
 
 {% highlight c++ linenos %}
 /* codeforces 124 div.2 D.cpp */
