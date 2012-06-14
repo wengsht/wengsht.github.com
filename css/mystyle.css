@@ -42,7 +42,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Vollkorn','Georgia',serif;
     font-weight: normal;
     line-height: 1.1;
-    margin-bottom: 0.8em;
 }
 h3, h4, h5, h6 {
     margin-top: 0.8em;
@@ -555,7 +554,7 @@ a:hover{
     -webkit-transition: all 0.3s ease-in;
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
-    margin-top: 15px;
+    margin-top: 25px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
 }
 .ui-blog h2:hover,h1:hover,h3:hover,h4:hover
