@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+        <head>
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/css/violet.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
+<script src="/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<link href='http://fonts.googleapis.com/css?family=Ruda:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/mystyle.css" type="text/css">
+<link rel="stylesheet" href="/css/calendar.css" type="text/css">
+<link rel="stylesheet" href="/css/jquery-ui-1.8.18.custom.css" type="text/css" />
+<script src="/js/jquery-ui-1.8.18.custom.js"></script>
+<script src="/js/myjs.js"></script>
+
+        <title>
+            
+            Codeforces Round 124(Div.2) 总结
+            
+        </title>
+        <link href="/image/face.png" type="image/x-icon" rel="shortcut icon" />
+        </head>
+        <body>
+            <div class="container">
+                
+<div class="navbar navbar-fixed-top transparence">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav pull-left">
+                <li><a href="/whoami.html">About me</a></li>
+                <li><a>|</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/project.html">Project</a></li>
+                <li><a href="/blog.html">博文</a></li>
+            </ul>
+
+            <ul class="nav pull-right">
+                <li><a href="http://weibo.com/u/1752550681"><img src="/image/weibo.png" title="新浪微博"></img></a></li>
+                <li><a href="http://book.douban.com/people/wengsht/"><img src="/image/douban.png" title="豆瓣读书"></img></a></li>
+                <li><a href="http://github.com/wengsht"><img src="/image/git.png" title="github"></img></a></li>
+                <li><a href="https://plus.google.com/u/0/"><img src="/image/g+.png" title="g+"></img></a></li>
+                <li><a href="/feed.xml" target="_blank" rel="nofollow"><img src="/image/rss.png" title="订阅我的博客"></img></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                <hr></hr>  
+                <div class="ui-content">
+                    <div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar title-center">
+            <span>Codeforces Round 124(Div.2) 总结</span>
+    </div>
+</div>
+</div>
+
+<div class="well">
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <span class="post-abstract">一场codeforces - div2 的总结</span>
+    </div>
+</div>
+</div>
+</div>
+
+<hr></hr>
+
+<div class="well">
+    <div class="ui-blog">
+        <h2 id='id4'>缘起</h2>
+<hr />
+<p>水人前几天发现阔别已久的codeforces竟然有9点场，看来比午夜场淡定很多，于是拉上比<a href='https://github.com/ZeyuChen'>泽裕</a>一起去水。水人目测9点前离开实验室有点废所以便在实验室开打了。</p>
+
+<h2 id='id5'>流水</h2>
+<hr />
+<p>codeforces只有两个小时但是因为我们做div.2所以略水啊。当然只是前几题略水。本来想着半小时水三道冲四的，结果一进场就被吓到了.我汗啊5道题全是3000分，然后看完第一道类似博弈的东西，彻底被镇住。</p>
+
+<p>A. <a href='http://www.codeforces.com/contest/197/problem/A'>Plate Game</a></p>
+
+<p>说给个长方形，一种固定大小的圆，两个人往里面轮流放，不能重叠不能越出长方形。谁先没得放就输了。</p>
+
+<p>其实这题一看就觉得有点水，想想第一个圆放下去以后first对称着放不就行了？然后和废人说了一下想法，他觉得也就是这样了。他就去敲并且过了，我竟然敲错一点。。尼嘛几行代码能敲错我真是水到暴。然后WA了两次怀疑正确性=。=，最后拖沓地过了小数据。</p>
+
+<p>B. <a href='http://www.codeforces.com/contest/197/problem/B'>Limit</a></p>
+
+<p>全场最大水题，算两个多项式相除的极限，这种东西，不是无限就是0不然就是一个除法搞定拉。不过被A射了一箭搞得分数奇低。</p>
+
+<p>C. <a href='http://www.codeforces.com/contest/197/problem/C'>Lexicographically Maximum Subsequence</a></p>
+
+<p>此时泽裕貌似过了三道了=。=我就继续看第三道，竟然看错题..堪称最长递减子序列，不过就算看错也是水题，速敲速交WA去..问了下泽裕，原来是字典序最大！！！尼嘛水到暴了。</p>
+
+<p>D. <a href='http://www.codeforces.com/contest/197/problem/D'>Infinite Maze</a></p>
+
+<p>因为之前被三道水题吓到，开D的时候已经没有信心拉。问了下题意，他说是水题，我一看也觉得很水，说给个矩阵地图，有些点可以走有些不可以，问这个小地图组成的大地图（横竖挨着放）能否走到无限远。</p>
+
+<p>一上眼直接开暴力，模拟走到第100个就说可以拉。结果敲完已经1小时56分了，交第一个Runtime Error心碎，以为没可能了，发现数组开很小，改超级大交上去。过了小数据！！！还是泽裕看到我过的。。当时真是开心呀。得瑟回宿舍。 结果出来结果Time Limited 10，哭了，想想应该是开太大了暴力，就改小一点，WA46蛋碎..又水掉了一场。什么时候能变色呢。</p>
+
+<p>后来想想D其实是水题，只要走到别的地图的点是在本地图走过的点就行了。</p>
+
+<p>充分性:如果能够走到别的地图上走过的点，那么可以照这种走法走无限远，因为地图之间肯定有一个坐标是偏离的。</p>
+
+<p>必要性:因为可以走无限远，而小地图大小有限，所以必然可以走到相同的点。想到这一层就敲之结果也过了，代码如下:</p>
+<br /><div class='highlight'><pre><code class='cpp'><span class='lineno'>  1</span> <span class='cm'>/*</span>
+<span class='lineno'>  2</span> <span class='cm'> *codeforces 124 div.2 D.cpp </span>
+<span class='lineno'>  3</span> <span class='cm'> *</span>
+<span class='lineno'>  4</span> <span class='cm'>*/</span>
+<span class='lineno'>  5</span> <span class='cp'>#include &lt;iostream&gt;</span>
+<span class='lineno'>  6</span> <span class='cp'>#include &lt;queue&gt;</span>
+<span class='lineno'>  7</span> <span class='cp'>#include &lt;cstdio&gt;</span>
+<span class='lineno'>  8</span> <span class='cp'>#include &lt;cstring&gt;</span>
+<span class='lineno'>  9</span> <span class='cp'>#include &lt;cstdlib&gt;</span>
+<span class='lineno'> 10</span> <span class='k'>using</span> <span class='k'>namespace</span> <span class='n'>std</span><span class='p'>;</span>
+<span class='lineno'> 11</span> 
+<span class='lineno'> 12</span> <span class='cp'>#define INF 50</span>
+<span class='lineno'> 13</span> <span class='cp'>#define MX  1555</span>
+<span class='lineno'> 14</span> <span class='kt'>int</span> <span class='n'>n</span><span class='p'>,</span> <span class='n'>m</span><span class='p'>;</span>
+<span class='lineno'> 15</span> <span class='kt'>int</span> <span class='n'>st</span><span class='p'>;</span>
+<span class='lineno'> 16</span> <span class='kt'>int</span> <span class='n'>board</span><span class='p'>[</span><span class='mi'>1501</span><span class='p'>][</span><span class='mi'>1501</span><span class='p'>];</span>
+<span class='lineno'> 17</span> <span class='kt'>char</span> <span class='n'>input</span><span class='p'>[</span><span class='mi'>1510</span><span class='p'>];</span>
+<span class='lineno'> 18</span> <span class='kt'>bool</span> <span class='n'>had</span><span class='p'>[</span><span class='n'>MX</span><span class='o'>+</span><span class='mi'>100</span><span class='p'>][</span><span class='n'>MX</span><span class='o'>+</span><span class='mi'>100</span><span class='p'>];</span>
+<span class='lineno'> 19</span> <span class='kt'>int</span> <span class='n'>po</span><span class='p'>[</span><span class='n'>MX</span><span class='p'>][</span><span class='n'>MX</span><span class='p'>][</span><span class='mi'>2</span><span class='p'>];</span>
+<span class='lineno'> 20</span> <span class='c1'>//#define HOME </span>
+<span class='lineno'> 21</span> 
+<span class='lineno'> 22</span> <span class='kt'>int</span> <span class='n'>_x</span><span class='p'>[]</span> <span class='o'>=</span> <span class='p'>{</span><span class='mi'>1</span><span class='p'>,</span> <span class='o'>-</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>0</span> <span class='p'>,</span><span class='mi'>0</span> <span class='p'>};</span>
+<span class='lineno'> 23</span> <span class='kt'>int</span> <span class='n'>_y</span><span class='p'>[]</span> <span class='o'>=</span> <span class='p'>{</span><span class='mi'>0</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>,</span> <span class='o'>-</span><span class='mi'>1</span> <span class='p'>};</span>
+<span class='lineno'> 24</span> <span class='kt'>int</span> <span class='n'>main</span><span class='p'>()</span>
+<span class='lineno'> 25</span> <span class='p'>{</span>
+<span class='lineno'> 26</span> <span class='cp'>#ifdef HOME</span>
+<span class='lineno'> 27</span>     <span class='n'>freopen</span><span class='p'>(</span><span class='s'>&quot;1.txt&quot;</span><span class='p'>,</span> <span class='s'>&quot;r&quot;</span><span class='p'>,</span> <span class='n'>stdin</span><span class='p'>);</span>
+<span class='lineno'> 28</span> <span class='cp'>#endif</span>
+<span class='lineno'> 29</span>     <span class='n'>scanf</span><span class='p'>(</span><span class='s'>&quot;%d %d&quot;</span><span class='p'>,</span> <span class='o'>&amp;</span><span class='n'>n</span><span class='p'>,</span> <span class='o'>&amp;</span><span class='n'>m</span><span class='p'>);</span>
+<span class='lineno'> 30</span>     <span class='n'>memset</span><span class='p'>(</span><span class='n'>had</span><span class='p'>,</span> <span class='kc'>false</span><span class='p'>,</span> <span class='k'>sizeof</span><span class='p'>(</span><span class='n'>had</span><span class='p'>));</span>
+<span class='lineno'> 31</span>     <span class='k'>for</span><span class='p'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span><span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>n</span><span class='p'>;</span><span class='n'>i</span><span class='o'>++</span><span class='p'>)</span>
+<span class='lineno'> 32</span>     <span class='p'>{</span>
+<span class='lineno'> 33</span>         <span class='n'>scanf</span><span class='p'>(</span><span class='s'>&quot;%s&quot;</span><span class='p'>,</span> <span class='n'>input</span><span class='p'>);</span>
+<span class='lineno'> 34</span>         <span class='kt'>int</span> <span class='n'>len</span> <span class='o'>=</span> <span class='n'>strlen</span><span class='p'>(</span><span class='n'>input</span><span class='p'>);</span>
+<span class='lineno'> 35</span>         <span class='k'>for</span><span class='p'>(</span><span class='kt'>int</span> <span class='n'>j</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span><span class='n'>j</span> <span class='o'>&lt;</span> <span class='n'>len</span><span class='p'>;</span><span class='n'>j</span><span class='o'>++</span><span class='p'>)</span>
+<span class='lineno'> 36</span>         <span class='p'>{</span>
+<span class='lineno'> 37</span>             <span class='k'>if</span><span class='p'>(</span><span class='n'>input</span><span class='p'>[</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>==</span> <span class='sc'>&#39;#&#39;</span><span class='p'>)</span> <span class='n'>board</span><span class='p'>[</span><span class='n'>i</span><span class='p'>][</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>1</span><span class='p'>;</span>
+<span class='lineno'> 38</span>             <span class='k'>else</span> <span class='k'>if</span><span class='p'>(</span><span class='n'>input</span><span class='p'>[</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>==</span> <span class='sc'>&#39;.&#39;</span><span class='p'>)</span> <span class='n'>board</span><span class='p'>[</span><span class='n'>i</span><span class='p'>][</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 39</span>             <span class='k'>else</span>
+<span class='lineno'> 40</span>             <span class='p'>{</span>
+<span class='lineno'> 41</span>                 <span class='n'>board</span><span class='p'>[</span><span class='n'>i</span><span class='p'>][</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 42</span>                 <span class='n'>st</span> <span class='o'>=</span> <span class='n'>i</span> <span class='o'>*</span> <span class='n'>m</span> <span class='o'>+</span> <span class='n'>j</span><span class='p'>;</span>
+<span class='lineno'> 43</span>                 <span class='n'>po</span><span class='p'>[</span><span class='n'>i</span><span class='p'>][</span><span class='n'>j</span><span class='p'>][</span><span class='mi'>0</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 44</span>                 <span class='n'>po</span><span class='p'>[</span><span class='n'>i</span><span class='p'>][</span><span class='n'>j</span><span class='p'>][</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 45</span>             <span class='p'>}</span>
+<span class='lineno'> 46</span>         <span class='p'>}</span>
+<span class='lineno'> 47</span>     <span class='p'>}</span>
+<span class='lineno'> 48</span>     
+<span class='lineno'> 49</span>     <span class='n'>queue</span><span class='o'>&lt;</span><span class='kt'>int</span><span class='o'>&gt;</span> <span class='n'>q</span><span class='p'>;</span>
+<span class='lineno'> 50</span>     <span class='n'>q</span><span class='p'>.</span><span class='n'>push</span><span class='p'>(</span><span class='n'>st</span><span class='p'>);</span>
+<span class='lineno'> 51</span>     <span class='n'>had</span><span class='p'>[</span><span class='n'>st</span><span class='o'>/</span><span class='n'>m</span><span class='p'>][</span><span class='n'>st</span><span class='o'>%</span><span class='n'>m</span><span class='p'>]</span> <span class='o'>=</span> <span class='kc'>true</span><span class='p'>;</span>
+<span class='lineno'> 52</span>     <span class='kt'>bool</span> <span class='n'>ok</span> <span class='o'>=</span> <span class='kc'>false</span><span class='p'>;</span>
+<span class='lineno'> 53</span>     <span class='k'>while</span><span class='p'>(</span><span class='o'>!</span><span class='n'>q</span><span class='p'>.</span><span class='n'>empty</span><span class='p'>())</span>
+<span class='lineno'> 54</span>     <span class='p'>{</span>
+<span class='lineno'> 55</span>         <span class='k'>if</span><span class='p'>(</span><span class='n'>ok</span><span class='p'>)</span> <span class='k'>break</span><span class='p'>;</span>
+<span class='lineno'> 56</span>         <span class='kt'>int</span> <span class='n'>_top</span> <span class='o'>=</span> <span class='n'>q</span><span class='p'>.</span><span class='n'>front</span><span class='p'>();</span> <span class='n'>q</span><span class='p'>.</span><span class='n'>pop</span><span class='p'>();</span>
+<span class='lineno'> 57</span>         <span class='kt'>int</span> <span class='n'>x</span> <span class='o'>=</span> <span class='n'>_top</span> <span class='o'>/</span> <span class='n'>m</span><span class='p'>,</span> <span class='n'>y</span>  <span class='o'>=</span> <span class='n'>_top</span> <span class='o'>%</span> <span class='n'>m</span><span class='p'>;</span>
+<span class='lineno'> 58</span> 
+<span class='lineno'> 59</span>         <span class='k'>for</span><span class='p'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span><span class='n'>i</span> <span class='o'>&lt;</span> <span class='mi'>4</span><span class='p'>;</span><span class='n'>i</span><span class='o'>++</span><span class='p'>)</span>
+<span class='lineno'> 60</span>         <span class='p'>{</span>
+<span class='lineno'> 61</span>             <span class='kt'>int</span> <span class='n'>x_nxt</span> <span class='o'>=</span> <span class='n'>x</span> <span class='o'>+</span> <span class='n'>_x</span><span class='p'>[</span><span class='n'>i</span><span class='p'>],</span> <span class='n'>y_nxt</span> <span class='o'>=</span> <span class='n'>y</span> <span class='o'>+</span> <span class='n'>_y</span><span class='p'>[</span><span class='n'>i</span><span class='p'>];</span>
+<span class='lineno'> 62</span> 
+<span class='lineno'> 63</span>             <span class='kt'>int</span> <span class='n'>opx</span> <span class='o'>=</span> <span class='n'>po</span><span class='p'>[</span><span class='n'>x</span><span class='p'>][</span><span class='n'>y</span><span class='p'>][</span><span class='mi'>0</span><span class='p'>],</span> <span class='n'>opy</span> <span class='o'>=</span> <span class='n'>po</span><span class='p'>[</span><span class='n'>x</span><span class='p'>][</span><span class='n'>y</span><span class='p'>][</span><span class='mi'>1</span><span class='p'>];</span>
+<span class='lineno'> 64</span> 
+<span class='lineno'> 65</span>             <span class='k'>if</span><span class='p'>(</span><span class='n'>x_nxt</span> <span class='o'>==</span> <span class='o'>-</span><span class='mi'>1</span><span class='p'>)</span>
+<span class='lineno'> 66</span>             <span class='p'>{</span>
+<span class='lineno'> 67</span>                 <span class='n'>opx</span><span class='o'>--</span><span class='p'>;</span>
+<span class='lineno'> 68</span>                 <span class='n'>x_nxt</span> <span class='o'>=</span> <span class='n'>n</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>;</span>
+<span class='lineno'> 69</span>             <span class='p'>}</span>
+<span class='lineno'> 70</span>             <span class='k'>else</span> <span class='k'>if</span><span class='p'>(</span><span class='n'>x_nxt</span> <span class='o'>==</span> <span class='n'>n</span><span class='p'>)</span>
+<span class='lineno'> 71</span>             <span class='p'>{</span>
+<span class='lineno'> 72</span>                 <span class='n'>opx</span><span class='o'>++</span><span class='p'>;</span>
+<span class='lineno'> 73</span>                 <span class='n'>x_nxt</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 74</span>             <span class='p'>}</span>
+<span class='lineno'> 75</span>             <span class='k'>else</span> <span class='k'>if</span><span class='p'>(</span><span class='n'>y_nxt</span> <span class='o'>==</span> <span class='o'>-</span><span class='mi'>1</span><span class='p'>)</span>
+<span class='lineno'> 76</span>             <span class='p'>{</span>
+<span class='lineno'> 77</span>                 <span class='n'>opy</span><span class='o'>--</span><span class='p'>;</span>
+<span class='lineno'> 78</span>                 <span class='n'>y_nxt</span> <span class='o'>=</span> <span class='n'>m</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>;</span>
+<span class='lineno'> 79</span>             <span class='p'>}</span>
+<span class='lineno'> 80</span>             <span class='k'>else</span> <span class='k'>if</span><span class='p'>(</span><span class='n'>y_nxt</span> <span class='o'>==</span> <span class='n'>m</span><span class='p'>)</span>
+<span class='lineno'> 81</span>             <span class='p'>{</span>
+<span class='lineno'> 82</span>                 <span class='n'>opy</span><span class='o'>++</span><span class='p'>;</span>
+<span class='lineno'> 83</span>                 <span class='n'>y_nxt</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>
+<span class='lineno'> 84</span>             <span class='p'>}</span>
+<span class='lineno'> 85</span>             <span class='k'>if</span><span class='p'>(</span><span class='n'>board</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>]</span> <span class='o'>==</span> <span class='mi'>1</span><span class='p'>)</span> <span class='k'>continue</span><span class='p'>;</span>
+<span class='lineno'> 86</span>             <span class='k'>else</span> <span class='k'>if</span><span class='p'>(</span><span class='o'>!</span><span class='n'>had</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>])</span>
+<span class='lineno'> 87</span>             <span class='p'>{</span>
+<span class='lineno'> 88</span>                 <span class='n'>had</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>]</span> <span class='o'>=</span> <span class='kc'>true</span><span class='p'>;</span>
+<span class='lineno'> 89</span>                 <span class='n'>q</span><span class='p'>.</span><span class='n'>push</span><span class='p'>(</span><span class='n'>x_nxt</span><span class='o'>*</span><span class='n'>m</span><span class='o'>+</span><span class='n'>y_nxt</span><span class='p'>);</span>
+<span class='lineno'> 90</span>                 <span class='n'>po</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>][</span><span class='mi'>0</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>opx</span><span class='p'>;</span>
+<span class='lineno'> 91</span>                 <span class='n'>po</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>][</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>opy</span><span class='p'>;</span>
+<span class='lineno'> 92</span>             <span class='p'>}</span>
+<span class='lineno'> 93</span>             <span class='k'>else</span>
+<span class='lineno'> 94</span>             <span class='p'>{</span>
+<span class='lineno'> 95</span>                 <span class='k'>if</span><span class='p'>(</span><span class='n'>opx</span> <span class='o'>!=</span> <span class='n'>po</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>][</span><span class='mi'>0</span><span class='p'>]</span> <span class='o'>||</span> <span class='n'>opy</span> <span class='o'>!=</span> <span class='n'>po</span><span class='p'>[</span><span class='n'>x_nxt</span><span class='p'>][</span><span class='n'>y_nxt</span><span class='p'>][</span><span class='mi'>1</span><span class='p'>])</span>
+<span class='lineno'> 96</span>                 <span class='p'>{</span>
+<span class='lineno'> 97</span>                     <span class='n'>ok</span> <span class='o'>=</span> <span class='kc'>true</span><span class='p'>;</span>
+<span class='lineno'> 98</span>                     <span class='k'>break</span><span class='p'>;</span>
+<span class='lineno'> 99</span>                 <span class='p'>}</span>
+<span class='lineno'>100</span>             <span class='p'>}</span>
+<span class='lineno'>101</span> 
+<span class='lineno'>102</span>         <span class='p'>}</span>
+<span class='lineno'>103</span>     <span class='p'>}</span>
+<span class='lineno'>104</span>     <span class='k'>if</span><span class='p'>(</span><span class='n'>ok</span><span class='p'>)</span>
+<span class='lineno'>105</span>         <span class='n'>printf</span><span class='p'>(</span><span class='s'>&quot;Yes</span><span class='se'>\n</span><span class='s'>&quot;</span><span class='p'>);</span>
+<span class='lineno'>106</span>     <span class='k'>else</span>
+<span class='lineno'>107</span>         <span class='n'>printf</span><span class='p'>(</span><span class='s'>&quot;No</span><span class='se'>\n</span><span class='s'>&quot;</span><span class='p'>);</span>
+<span class='lineno'>108</span> <span class='p'>}</span>
+</code></pre>
+</div><br />
+<p><a href='http://www.codeforces.com/contest/197/problem/E'>E. Paint Tree</a></p>
+
+<p>水人表示这个不是水人的菜。</p>
+
+<h2 id='id6'>后记</h2>
+<hr />
+<p>现在生活已经没那么清闲，毕竟比大一大二老了很多，一想到大一大二为之奋斗的东西现在要告别就胸口受伤。其实我想坚持，只是又觉得没多大必要了，就让我这个水人越来越水吧。</p>
+
+<p>这可能就是为什么我要花两个小时做那么几道水题的原因吧，明明肯定不是为了锻炼了，或许只是因为我依然喜欢这个游戏。虽然可以毫无压力什么都不理只刷题的日子已经不在。但依然会为每一个Accepted而开心，水题又怎么样，别人打机看小说浪费时间，我刷水题能高兴还怕浪费时间么=。=</p>
+
+<p>其实我们两一起水题也有一段日子了，codeforces很多次都感觉能暴4题但最后老差那么一点。很奇怪。好吧以后我决定以后要多玩这个了毕竟很开心。什么时候能稳稳过4题，就变色吧～～</p>
+<hr />
+<p>ps记:近来水人看欧洲杯，期待B组两场0蛋的荷兰都进8场那我就什么奇迹都相信了，喜欢就继续。</p>
+    </div>
+</div>
+
+<div class="well">
+    <h2>Related Posts</h2>
+    <ul>
+        
+        
+        <li><span>09 Jun 2012</span> &raquo; <a href="/2012/06/09/%E5%8D%9A%E5%AE%A2v2%E4%B8%8A%E7%BA%BF.html">重构后博客上线</a></li>
+        
+        
+        
+        <li><span>18 Apr 2012</span> &raquo; <a href="/2012/04/18/test.html">我的第一个博客</a></li>
+        
+        
+        
+        
+    </ul>
+    <hr/>
+</div>
+
+<hr></hr>
+<div class="well">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'wengsht'; // 注意，这里的 example 要替换为你自己的短域名
+/* * * 下面这些不需要改动 * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
+
+                </div>
+            </div>
+            <div class="to-top">
+                <a href="#"><img src="/image/cur.jpg" title="返回顶端" class="to-top-img"></a>
+            </div>
+
+            
+            
+            <div class="calendar">
+                <span class="year">2012</span>
+                <span class="day">14</span>
+                <span class="month">June</span>
+            </div>
+            
+
+            <footer class="ui-foot">
+        <div class="ui-foot-inner">
+            <section class="ui-grid-13 violet-submenu">
+                <ul>
+                    <li><a href="/index.html" rel="nofollow"><span>&#8227;</span>Home</a></li>
+                    <li><a href="/blog.html" rel="bookmark"><span>&#8227;</span>Archives</a></li>
+                    <li><a href="/whoami.html" rel="bookmark"><span>&#8227;</span>Whoami</a></li>
+                </ul>
+            </section>
+            <section class="ui-grid-6 violet-theme">
+            <p>Powered by <a href="http://jekyllrb.com" target="_blank" rel="nofollow">Jekyll</a>. <br/>fork me in github. <a href="http://www.github.com/wengsht" rel="nofollow">wengsht</a>.<span class="v-tj"><script src="http://s16.cnzz.com/stat.php?id=3754334&web_id=3754334&show=pic" language="JavaScript"></script></span></p>
+            </section>
+            <section class="ui-grid-4 violet-copyright">
+            <p style="text-align: right">wengsht.<br/> 16:37 2012-06-09</p>
+            </section>
+        </div>
+    </footer>
+
+        </body>
+    </html>

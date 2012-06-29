@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>沙漏•不倒翁</title>
+   <link href="http://wengsht.github.com/feed.xml" rel="self" type="application/atom+xml"/>
+   <link href="http://wengsht.github.com" rel="alternate" type="text/html" />
+   <updated>2012-06-14T20:58:59+08:00</updated>
+   <id>http://wengsht.github.com</id>
+   <author>
+     <name>wengsht</name>
+     <email>wengsht.sysu@gmail.com</email>
+   </author>
+
+   
+   
+   <entry>
+     <title>Codeforces Round 124(Div.2) 总结</title>
+     <link href="http://wengsht.github.com/2012/06/14/Codeforces-div2-124.html"/>
+     <updated>2012-06-14T00:00:00+08:00</updated>
+     <id>http://wengsht.github.com/2012/06/14/Codeforces-div2-124</id>
+     <content type="html">&lt;h2 id='id4'&gt;缘起&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;水人前几天发现阔别已久的codeforces竟然有9点场，看来比午夜场淡定很多，于是拉上比&lt;a href='https://github.com/ZeyuChen'&gt;泽裕&lt;/a&gt;一起去水。水人目测9点前离开实验室有点废所以便在实验室开打了。&lt;/p&gt;
+
+&lt;h2 id='id5'&gt;流水&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;codeforces只有两个小时但是因为我们做div.2所以略水啊。当然只是前几题略水。本来想着半小时水三道冲四的，结果一进场就被吓到了.我汗啊5道题全是3000分，然后看完第一道类似博弈的东西，彻底被镇住。&lt;/p&gt;
+
+&lt;p&gt;A. &lt;a href='http://www.codeforces.com/contest/197/problem/A'&gt;Plate Game&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;说给个长方形，一种固定大小的圆，两个人往里面轮流放，不能重叠不能越出长方形。谁先没得放就输了。&lt;/p&gt;
+
+&lt;p&gt;其实这题一看就觉得有点水，想想第一个圆放下去以后first对称着放不就行了？然后和废人说了一下想法，他觉得也就是这样了。他就去敲并且过了，我竟然敲错一点。。尼嘛几行代码能敲错我真是水到暴。然后WA了两次怀疑正确性=。=，最后拖沓地过了小数据。&lt;/p&gt;
+
+&lt;p&gt;B. &lt;a href='http://www.codeforces.com/contest/197/problem/B'&gt;Limit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;全场最大水题，算两个多项式相除的极限，这种东西，不是无限就是0不然就是一个除法搞定拉。不过被A射了一箭搞得分数奇低。&lt;/p&gt;
+
+&lt;p&gt;C. &lt;a href='http://www.codeforces.com/contest/197/problem/C'&gt;Lexicographically Maximum Subsequence&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;此时泽裕貌似过了三道了=。=我就继续看第三道，竟然看错题..堪称最长递减子序列，不过就算看错也是水题，速敲速交WA去..问了下泽裕，原来是字典序最大！！！尼嘛水到暴了。&lt;/p&gt;
+
+&lt;p&gt;D. &lt;a href='http://www.codeforces.com/contest/197/problem/D'&gt;Infinite Maze&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因为之前被三道水题吓到，开D的时候已经没有信心拉。问了下题意，他说是水题，我一看也觉得很水，说给个矩阵地图，有些点可以走有些不可以，问这个小地图组成的大地图（横竖挨着放）能否走到无限远。&lt;/p&gt;
+
+&lt;p&gt;一上眼直接开暴力，模拟走到第100个就说可以拉。结果敲完已经1小时56分了，交第一个Runtime Error心碎，以为没可能了，发现数组开很小，改超级大交上去。过了小数据！！！还是泽裕看到我过的。。当时真是开心呀。得瑟回宿舍。 结果出来结果Time Limited 10，哭了，想想应该是开太大了暴力，就改小一点，WA46蛋碎..又水掉了一场。什么时候能变色呢。&lt;/p&gt;
+
+&lt;p&gt;后来想想D其实是水题，只要走到别的地图的点是在本地图走过的点就行了。&lt;/p&gt;
+
+&lt;p&gt;充分性:如果能够走到别的地图上走过的点，那么可以照这种走法走无限远，因为地图之间肯定有一个坐标是偏离的。&lt;/p&gt;
+
+&lt;p&gt;必要性:因为可以走无限远，而小地图大小有限，所以必然可以走到相同的点。想到这一层就敲之结果也过了，代码如下:&lt;/p&gt;
+&lt;br /&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='cpp'&gt;&lt;span class='lineno'&gt;  1&lt;/span&gt; &lt;span class='cm'&gt;/*&lt;/span&gt;
+&lt;span class='lineno'&gt;  2&lt;/span&gt; &lt;span class='cm'&gt; *codeforces 124 div.2 D.cpp &lt;/span&gt;
+&lt;span class='lineno'&gt;  3&lt;/span&gt; &lt;span class='cm'&gt; *&lt;/span&gt;
+&lt;span class='lineno'&gt;  4&lt;/span&gt; &lt;span class='cm'&gt;*/&lt;/span&gt;
+&lt;span class='lineno'&gt;  5&lt;/span&gt; &lt;span class='cp'&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
+&lt;span class='lineno'&gt;  6&lt;/span&gt; &lt;span class='cp'&gt;#include &amp;lt;queue&amp;gt;&lt;/span&gt;
+&lt;span class='lineno'&gt;  7&lt;/span&gt; &lt;span class='cp'&gt;#include &amp;lt;cstdio&amp;gt;&lt;/span&gt;
+&lt;span class='lineno'&gt;  8&lt;/span&gt; &lt;span class='cp'&gt;#include &amp;lt;cstring&amp;gt;&lt;/span&gt;
+&lt;span class='lineno'&gt;  9&lt;/span&gt; &lt;span class='cp'&gt;#include &amp;lt;cstdlib&amp;gt;&lt;/span&gt;
+&lt;span class='lineno'&gt; 10&lt;/span&gt; &lt;span class='k'&gt;using&lt;/span&gt; &lt;span class='k'&gt;namespace&lt;/span&gt; &lt;span class='n'&gt;std&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 11&lt;/span&gt; 
+&lt;span class='lineno'&gt; 12&lt;/span&gt; &lt;span class='cp'&gt;#define INF 50&lt;/span&gt;
+&lt;span class='lineno'&gt; 13&lt;/span&gt; &lt;span class='cp'&gt;#define MX  1555&lt;/span&gt;
+&lt;span class='lineno'&gt; 14&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 15&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;st&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 16&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;board&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;1501&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;1501&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 17&lt;/span&gt; &lt;span class='kt'&gt;char&lt;/span&gt; &lt;span class='n'&gt;input&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;1510&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 18&lt;/span&gt; &lt;span class='kt'&gt;bool&lt;/span&gt; &lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;MX&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;100&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;MX&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;100&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 19&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;MX&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;MX&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 20&lt;/span&gt; &lt;span class='c1'&gt;//#define HOME &lt;/span&gt;
+&lt;span class='lineno'&gt; 21&lt;/span&gt; 
+&lt;span class='lineno'&gt; 22&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;_x&lt;/span&gt;&lt;span class='p'&gt;[]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt; &lt;span class='p'&gt;};&lt;/span&gt;
+&lt;span class='lineno'&gt; 23&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;_y&lt;/span&gt;&lt;span class='p'&gt;[]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt; &lt;span class='p'&gt;};&lt;/span&gt;
+&lt;span class='lineno'&gt; 24&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;main&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;span class='lineno'&gt; 25&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 26&lt;/span&gt; &lt;span class='cp'&gt;#ifdef HOME&lt;/span&gt;
+&lt;span class='lineno'&gt; 27&lt;/span&gt;     &lt;span class='n'&gt;freopen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;1.txt&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;stdin&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 28&lt;/span&gt; &lt;span class='cp'&gt;#endif&lt;/span&gt;
+&lt;span class='lineno'&gt; 29&lt;/span&gt;     &lt;span class='n'&gt;scanf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;%d %d&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 30&lt;/span&gt;     &lt;span class='n'&gt;memset&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='kc'&gt;false&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='k'&gt;sizeof&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;));&lt;/span&gt;
+&lt;span class='lineno'&gt; 31&lt;/span&gt;     &lt;span class='k'&gt;for&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 32&lt;/span&gt;     &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 33&lt;/span&gt;         &lt;span class='n'&gt;scanf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;%s&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;input&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 34&lt;/span&gt;         &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;len&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;strlen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;input&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 35&lt;/span&gt;         &lt;span class='k'&gt;for&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;j&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='n'&gt;len&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 36&lt;/span&gt;         &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 37&lt;/span&gt;             &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;input&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='sc'&gt;&amp;#39;#&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='n'&gt;board&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 38&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;input&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='sc'&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='n'&gt;board&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 39&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt;
+&lt;span class='lineno'&gt; 40&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 41&lt;/span&gt;                 &lt;span class='n'&gt;board&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 42&lt;/span&gt;                 &lt;span class='n'&gt;st&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 43&lt;/span&gt;                 &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 44&lt;/span&gt;                 &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;j&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 45&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 46&lt;/span&gt;         &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 47&lt;/span&gt;     &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 48&lt;/span&gt;     
+&lt;span class='lineno'&gt; 49&lt;/span&gt;     &lt;span class='n'&gt;queue&lt;/span&gt;&lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 50&lt;/span&gt;     &lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;push&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;st&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 51&lt;/span&gt;     &lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;st&lt;/span&gt;&lt;span class='o'&gt;/&lt;/span&gt;&lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;st&lt;/span&gt;&lt;span class='o'&gt;%&lt;/span&gt;&lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;true&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 52&lt;/span&gt;     &lt;span class='kt'&gt;bool&lt;/span&gt; &lt;span class='n'&gt;ok&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;false&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 53&lt;/span&gt;     &lt;span class='k'&gt;while&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;&lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;empty&lt;/span&gt;&lt;span class='p'&gt;())&lt;/span&gt;
+&lt;span class='lineno'&gt; 54&lt;/span&gt;     &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 55&lt;/span&gt;         &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;ok&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;break&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 56&lt;/span&gt;         &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;_top&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;front&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt; &lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;pop&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt;
+&lt;span class='lineno'&gt; 57&lt;/span&gt;         &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;x&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;_top&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;y&lt;/span&gt;  &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;_top&lt;/span&gt; &lt;span class='o'&gt;%&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 58&lt;/span&gt; 
+&lt;span class='lineno'&gt; 59&lt;/span&gt;         &lt;span class='k'&gt;for&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='mi'&gt;4&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 60&lt;/span&gt;         &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 61&lt;/span&gt;             &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;x_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;x&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;_x&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt; &lt;span class='n'&gt;y_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;y&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;_y&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 62&lt;/span&gt; 
+&lt;span class='lineno'&gt; 63&lt;/span&gt;             &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;opx&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt; &lt;span class='n'&gt;opy&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;];&lt;/span&gt;
+&lt;span class='lineno'&gt; 64&lt;/span&gt; 
+&lt;span class='lineno'&gt; 65&lt;/span&gt;             &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 66&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 67&lt;/span&gt;                 &lt;span class='n'&gt;opx&lt;/span&gt;&lt;span class='o'&gt;--&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 68&lt;/span&gt;                 &lt;span class='n'&gt;x_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 69&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 70&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;n&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 71&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 72&lt;/span&gt;                 &lt;span class='n'&gt;opx&lt;/span&gt;&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 73&lt;/span&gt;                 &lt;span class='n'&gt;x_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 74&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 75&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 76&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 77&lt;/span&gt;                 &lt;span class='n'&gt;opy&lt;/span&gt;&lt;span class='o'&gt;--&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 78&lt;/span&gt;                 &lt;span class='n'&gt;y_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 79&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 80&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt; 81&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 82&lt;/span&gt;                 &lt;span class='n'&gt;opy&lt;/span&gt;&lt;span class='o'&gt;++&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 83&lt;/span&gt;                 &lt;span class='n'&gt;y_nxt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 84&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 85&lt;/span&gt;             &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;board&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;continue&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 86&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt; &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;&lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;])&lt;/span&gt;
+&lt;span class='lineno'&gt; 87&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 88&lt;/span&gt;                 &lt;span class='n'&gt;had&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;true&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 89&lt;/span&gt;                 &lt;span class='n'&gt;q&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;push&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='o'&gt;*&lt;/span&gt;&lt;span class='n'&gt;m&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt; 90&lt;/span&gt;                 &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;opx&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 91&lt;/span&gt;                 &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;opy&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 92&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt; 93&lt;/span&gt;             &lt;span class='k'&gt;else&lt;/span&gt;
+&lt;span class='lineno'&gt; 94&lt;/span&gt;             &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 95&lt;/span&gt;                 &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;opx&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;||&lt;/span&gt; &lt;span class='n'&gt;opy&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='n'&gt;po&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='n'&gt;x_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='n'&gt;y_nxt&lt;/span&gt;&lt;span class='p'&gt;][&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;])&lt;/span&gt;
+&lt;span class='lineno'&gt; 96&lt;/span&gt;                 &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt; 97&lt;/span&gt;                     &lt;span class='n'&gt;ok&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;true&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 98&lt;/span&gt;                     &lt;span class='k'&gt;break&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt; 99&lt;/span&gt;                 &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt;100&lt;/span&gt;             &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt;101&lt;/span&gt; 
+&lt;span class='lineno'&gt;102&lt;/span&gt;         &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt;103&lt;/span&gt;     &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt;104&lt;/span&gt;     &lt;span class='k'&gt;if&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;ok&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='lineno'&gt;105&lt;/span&gt;         &lt;span class='n'&gt;printf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;Yes&lt;/span&gt;&lt;span class='se'&gt;\n&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt;106&lt;/span&gt;     &lt;span class='k'&gt;else&lt;/span&gt;
+&lt;span class='lineno'&gt;107&lt;/span&gt;         &lt;span class='n'&gt;printf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;No&lt;/span&gt;&lt;span class='se'&gt;\n&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt;108&lt;/span&gt; &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;br /&gt;
+&lt;p&gt;&lt;a href='http://www.codeforces.com/contest/197/problem/E'&gt;E. Paint Tree&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;水人表示这个不是水人的菜。&lt;/p&gt;
+
+&lt;h2 id='id6'&gt;后记&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;现在生活已经没那么清闲，毕竟比大一大二老了很多，一想到大一大二为之奋斗的东西现在要告别就胸口受伤。其实我想坚持，只是又觉得没多大必要了，就让我这个水人越来越水吧。&lt;/p&gt;
+
+&lt;p&gt;这可能就是为什么我要花两个小时做那么几道水题的原因吧，明明肯定不是为了锻炼了，或许只是因为我依然喜欢这个游戏。虽然可以毫无压力什么都不理只刷题的日子已经不在。但依然会为每一个Accepted而开心，水题又怎么样，别人打机看小说浪费时间，我刷水题能高兴还怕浪费时间么=。=&lt;/p&gt;
+
+&lt;p&gt;其实我们两一起水题也有一段日子了，codeforces很多次都感觉能暴4题但最后老差那么一点。很奇怪。好吧以后我决定以后要多玩这个了毕竟很开心。什么时候能稳稳过4题，就变色吧～～&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;ps记:近来水人看欧洲杯，期待B组两场0蛋的荷兰都进8场那我就什么奇迹都相信了，喜欢就继续。&lt;/p&gt;</content>
+   </entry>
+   
+   
+   
+   <entry>
+     <title>重构后博客上线</title>
+     <link href="http://wengsht.github.com/2012/06/09/%E5%8D%9A%E5%AE%A2v2%E4%B8%8A%E7%BA%BF.html"/>
+     <updated>2012-06-09T00:00:00+08:00</updated>
+     <id>http://wengsht.github.com/2012/06/09/博客v2上线</id>
+     <content type="html">&lt;h2 id='id3'&gt;近来&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;最近算比较清闲，实验室没什么任务要做，美其名曰复习期末。其实真没什么好复习，编译原理目测又是几道大水题，人工智能这种水课就更不用说了，好吧你没看错我就考两门。&lt;/p&gt;
+
+&lt;p&gt;上周信安答辩+实验室静态度量器-fanotify版本实现之后就一直没什么特别的任务了， 最近干得比较多的事是看课外书。然后实在有点无聊了就想着是时候改改博客的样子不然真的没有写文章得动力了。&lt;/p&gt;
+
+&lt;p&gt;于是乎花了整整两天时间搞来搞去算是出来2.0版本。&lt;/p&gt;
+
+&lt;h2 id='changelog'&gt;Change-Log&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;css&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;这个没得说。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;RSS&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;增加RSS订阅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;index&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;简单预览&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;search&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;仅对文章title&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;highlight&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;利用pygment非常方便地实现&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+   </entry>
+   
+   
+   
+   <entry>
+     <title>我的第一个博客</title>
+     <link href="http://wengsht.github.com/2012/04/18/test.html"/>
+     <updated>2012-04-18T00:00:00+08:00</updated>
+     <id>http://wengsht.github.com/2012/04/18/test</id>
+     <content type="html">&lt;h2 id='id1'&gt;怎么有那么奇怪的想法&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;前天晚上听了&lt;a href='http://guoang.github.com'&gt;此郭&lt;/a&gt;介绍他用的博客生成器&lt;a href='https://github.com/mojombo/jekyll'&gt;jekyll&lt;/a&gt;之后，跃跃欲试啊。昨天一整天都昏昏沉沉的，于是乎昨晚11点就失眠了，于是乎就这么通宵了。&lt;/p&gt;
+
+&lt;p&gt;整到6点总算是恶心到了，就爬上去睡觉了。扔了篇英文的搞得大师以为是我自己写的。大师现在我把它改掉你不知道你在说什么了吧哈哈。&lt;/p&gt;
+
+&lt;p&gt;想想我最开始想接触web编程是在上学期刚开始的时候，不过呢，因为种种借口我买的JS那本书现在还只看到if else，最近觉得自己确实需要一个博客。其实我之前也开过CSDN的博客，&lt;a href='http://blog.csdn.net/rptotal'&gt;这里&lt;/a&gt;,哇竟然还有7000多点击= =||。不过呢，一眼就能看出来我的博文都是水题。那些要水题题解的同学们从来不会因为觉得我的代码垃圾而吐槽，当然他们拷代码从来也是不留名的。&lt;/p&gt;
+
+&lt;p&gt;然后呢，我觉得CSDN不适合写心情啊写感想啊什么的，很傻X好不。&lt;/p&gt;
+
+&lt;p&gt;于是乎就这样子吧。我想这个地方以后估计是长期自言自语的拉其实，要不拷点水题过来拉点击量？&lt;/p&gt;
+
+&lt;h2 id='id2'&gt;实现&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;废话那么多，说一下我的博客用到的东西吧。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://github.com/mojombo/jekyll'&gt;jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;必须的&amp;#8230;话说纠结了那么一会儿才弄清楚是怎么一回事&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://twitter.github.com/bootstrap/'&gt;bootstrap&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本来想自己学css的，还是算了。。弄个框架早点上线再来考虑这些奇怪的东西&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://www.pizn.me/'&gt;pizn博客&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;这个博客写得好好看&amp;#8230;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://www.pizn.me/2011/11/15/use-disqus-for-your-post.html'&gt;博客评论&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;利用disqus实现云评论&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://www.w3cplus.com/'&gt;w3c-plus&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;牛X的各种效果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://github.com/Shopify/liquid/wiki/Liquid-for-Designers'&gt;liquid&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;if else什么的有点像宏&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://pygments.org/'&gt;pygment&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;实现代码高亮，如下:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='c'&gt;&lt;span class='lineno'&gt;1&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='nf'&gt;main&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt;
+&lt;span class='lineno'&gt;2&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt;3&lt;/span&gt;     &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt;4&lt;/span&gt;     &lt;span class='n'&gt;scanf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;%d %d&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt;5&lt;/span&gt;     &lt;span class='n'&gt;printf&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='n'&gt;b&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='lineno'&gt;6&lt;/span&gt; 
+&lt;span class='lineno'&gt;7&lt;/span&gt;     &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt;8&lt;/span&gt; &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content>
+   </entry>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+</feed>
