@@ -42,6 +42,8 @@ PyQt开发桌面软件非常快，虽然在linux和mac下PyQt安装非常简单�
             description = "PyQtSort",  
             executables = [Executable("main.pyw", base = 'Win32GUI')]) 
 
+将`main.pyw`替换成你的脚本名
+
 保存退出
 
 打开`cmd`, 进入`C:`（python脚本所在目录）,运行`python setup.py build`
