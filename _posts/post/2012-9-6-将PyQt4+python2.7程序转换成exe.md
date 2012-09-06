@@ -15,6 +15,7 @@ type: post
 PyQt开发桌面软件非常快，虽然在linux和mac下PyQt安装非常简单，但是大部分windows不可能都愿意点开安装图标。所以如果能将python脚本打包成exe的话就非常方便了。
 
 网上搜到了三种软件:
+
 * py2exe
 > 看起来名字挺靠谱，不过网上介绍对python2.7之后支持不够
 
@@ -59,6 +60,7 @@ PyQt开发桌面软件非常快，虽然在linux和mac下PyQt安装非常简单�
 ### AttributeError ###
 
 `AttributeError: 'Module' object has no attribute 'QtSort'`
+
 其中QtSort是我自己写的一个模块，此处出错在程序中的一句：
 
 `from lib.sort_algo import *`
