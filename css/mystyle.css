@@ -476,7 +476,7 @@ a:hover{
 .ui-foot
 { 
     background: #000000; 
-    margin-left: 20%;
+    margin: 0;
     padding: 0; 
     border: 0pt none;
     font: inherit;
@@ -491,6 +491,7 @@ a:hover{
 .ui-foot-inner
 {
     width: 990px;
+    margin-left: 20%;
     padding-top: 50px;
 }
 .ui-hide
