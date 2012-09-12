@@ -268,19 +268,14 @@ a:hover{
     background: url(../image/year.jpg) no-repeat -15px 0; 
     text-indent: 5px; 
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0);
-    opacity: 0.7;
+    opacity: 0.8;
 }
 .violet-archive .year2:hover
 {
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    font-size:100px;
     line-height: 150px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
     opacity: 1;
