@@ -297,7 +297,6 @@ a:hover{
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     color: #666;
-    font-size: 30px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
 .ui-title
@@ -315,7 +314,6 @@ a:hover{
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    font-size: 25px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
 .ui-abstract
@@ -333,7 +331,6 @@ a:hover{
     -webkit-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    font-size: 20px;
     text-shadow: 0 -1px 0 rgba(81, 203, 238, 1);
 }
 .ui-whoami
