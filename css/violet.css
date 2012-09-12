@@ -593,9 +593,9 @@ p.v-my-face { padding-bottom: 0; margin: 0 auto 10px auto; text-align: right}
 
 /** foot **/
 .foot { margin-top: 30px; width: 100%; padding-top: 10px; height: 110px; background: #000000; background: -moz-linear-gradient(-90deg, #f4f5ef 0%, #f4f5ef 4%, #000000 15%, #000000 100%); background: -webkit-linear-gradient(-90deg, #244f0f 0%, #2d6213 4%, #000000 15%, #000000 100%); background: -ms-linear-gradient(-90deg, #244f0f 0%, #2d6213 4%, #000000 15%, #000000 100%); background: linear-gradient(-90deg, #244f0f 0%, #2d6213 4%, #000000 15%, #000000 100%); border-top: 2px solid #d8d8d8; opacity: 0.9; left: 0pt; right: 0pt; z-index: 1030; bottom: 0;}
-.violet-submenu { margin: 10px 10px 10px 30%; height: 80px; }
+.violet-submenu { margin: 10px 10px 10px 20%; height: 80px; }
 .violet-submenu ul li { line-height: 20px; margin: 10px 10px 0 0; width: 160px; float: left; }
-.violet-theme { margin-top: 20px; margin-left:20%; height: 70px; }
+.violet-theme { margin-top: 20px; margin-left:15%; height: 70px; }
 .violet-copyright { margin-top: 20px; margin-right: 0; height: 70px; }
 .violet-theme p , .violet-copyright p { padding: 10px 5px; color: #efefef; font-family: "Times New Roman",Times,serif; font-size: 12px; line-height: 21px; background: rgba(0, 0, 0, 0.2); border-radius: 3px 3px; border-top: 1px solid #2d6213; border-bottom: 1px solid #56a201; }
 
