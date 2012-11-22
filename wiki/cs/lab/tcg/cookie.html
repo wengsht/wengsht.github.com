@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>cookie</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<p>
+1. CRTM 和 SRTM的不同点。
+</p>
+<pre>
+A power-on reset creates an environment in which the platform is in a known initial
+state, with the main CPU running code from some well-defined initial location. Since
+that code has exclusive control of the platform at that time, it may make measurements 
+of the platform from firmware. From these initial measurements, a chain of trust may 
+be established. Because this chain of trust is created once when the platform is reset,
+no change of the initial trust state is possible, so it is called a static RTM (S-RTM).
+
+An alternative method of initializing the platform is available on some processor 
+architectures. It lets the CPU act as the CRTM and apply protections to portions of memory
+it measures. This process lets a new chain of trust start without rebooting the platform. 
+Because the RTM may be re-established dynamically, this method is called dynamic RTM (D-RTM).
+Both S-RTM and D-RTM may take a system in an unknown state and return it to a known state.
+The D-RTM has the advantage of not requiring the system to be rebooted.
+
+</pre>
+<p>
+这是从TPM文档中摘出的一句话。大体意思是SRTM是静态的，每次要建立可信链必须重启，而CRTM是动态的，可以不reboot重建可信链
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>
