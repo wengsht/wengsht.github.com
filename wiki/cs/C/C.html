@@ -40,41 +40,31 @@
         
 <h1 id="toc_1">C和C++知识记录</h1>
 
+
+<h2 id="toc_1.1">C 专家编程</h2>
 <ul>
 <li>
-extern 变量
-<pre class="brush:bash">
-今天编程的时候不小心把.h中的一个全局变量初始化了， 结果就悲剧地一直重定义。
-本来以为加了extern就一劳永逸了，结果发现不是，还是要注意全局变量初始化和不初始化的区别才行。。
-</pre>
+<a href="expert-c.html">C专家编程-思维导图</a>
 
 </ul>
 
+<h2 id="toc_1.2">小问题研究</h2>
 <ul>
 <li>
-include .h
-<pre class="brush:bash">
-又是纠结了很久的bug。后来发现是我习惯.c要include的.h文件都在.c的.h中去include，结果容易造成.h之间互相include
+<a href="const.html">C的const</a>
 
-一般来说也不是有什么问题，因为一般会写宏定义去过滤重复的include。
-
-但是问题是我有一个.h是用来存全局变量的，这就出问题了。
-
-因为有相互依赖问题，我在1.h中typedef的变量类型在2.h中用来定义变量，这个没问题。问题在于我在
-main中#include "1.h", 在1.h中又直接#include "2.h" 这就废了，因为照这么说2.h将在最前面。typedef 根本没有起作用。
-
-
-</pre>
-
-<ul>
 <li>
-解决办法：
-<pre class="brush:bash">
-头文件不会调用函数的，也就是说，只需要去#include  那些.h中用到的常量和类型定义等的头文件，而函数依赖在.c中体现
-ps:当然常量和类型定义最好在一个文件里或两个分开做。而他们之间不能有相互依赖关系！
-</pre>
+<a href="declare-c.html">C语言声明优先级</a>
 
-</ul>
+<li>
+<a href="extern.html">可见域</a>
+
+<li>
+<a href="lib.html">库的问题集</a>
+
+<li>
+<a href="setjmp.html">使用setjmp进行异常处理</a>
+
 </ul>
 
         </div>
