@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>const</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+
+<h1 id="toc_1">C语言const研究</h1>
+
+<p>
+刚刚写了一段这样子的代码：
+</p>
+
+<pre class="brush:c">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    const int two = 2;
+    int *one = &amp;two;
+    *one =1;
+
+    printf("%d\n", two);
+
+    return 0;
+}
+</pre>
+
+<p>
+在ANSI C中运行通过了。
+结果发现竟然成功输出了=。=、 看来C语言的常量限制仅陷于某个变量名啊。
+</p>
+
+<pre class="brush:bash">
+1
+</pre>
+
+<p>
+在K &amp; R C中则不能通过，因为不相容问题。
+</p>
+
+<p>
+C++也是不行的:
+</p>
+<pre class="brush:c++">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    const int two = 2;
+    int *one = const_cast&lt;int *&gt;(&amp;two);
+    *one = 1;
+
+    printf("%p %p\n", one, &amp;two);
+    printf("%d\n", two);
+    printf("%d\n", *one);
+
+    return 0;
+}
+</pre>
+
+<p>
+运行结果：
+</p>
+<pre class="brush:bash">
+0x7fff65150a54 0x7fff65150a54
+2
+1
+</pre>
+
+<p>
+诡异地出现同样地址不一样的值!
+</p>
+
+<p>
+进一步修改代码：
+</p>
+
+<pre class="brush:c++">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    const int two = 2;
+    int *one = const_cast&lt;int *&gt;(&amp;two);
+
+    printf("%d\n", *one);
+    *one = 1;
+
+    printf("%p %p\n", one, &amp;two);
+    printf("%d\n", two);
+    printf("%d\n", *one);
+
+    int *three = const_cast&lt;int *&gt;(&amp;two);
+    printf("%d\n", *three);
+
+    return 0;
+}
+</pre>
+
+<p>
+结果：
+</p>
+<pre class="brush:bash">
+2
+0x7fff669b6a54 0x7fff669b6a54
+2
+1
+1
+</pre>
+
+<p>
+有一种常量和变量完全剥离的感觉！
+于是在stackoverflow上发现下面这段子：
+</p>
+
+
+<pre>
+In C++ language it is illegal to attempt to modify constant objects. Such an attempt results in undefined behavior.
+
+In your program the *p = 2 assignment attempts to modify a constant object a. The behavior is undefined. The weird output you observe is exactly that: undefined behavior.
+
+There's no meaningful explanation for undefined behavior.
+
+(Your compiler probably translated the cout &lt;&lt; a; statement into cout &lt;&lt; 1;, since the value of a cannot legally change. So, regardless of what you do to your a, 1 will always be printed.)
+</pre>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>
