@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>eap-ttls</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<h1 id="toc_1">EAP-TTLS</h1>
+<h2 id="toc_1.1">和EAP-TLS</h2>
+<pre>
+ EAP-TTLS is an EAP (Extensible Authentication Protocol) method that
+   encapsulates a TLS (Transport Layer Security) session, consisting of
+   a handshake phase and a data phase.  During the handshake phase, the
+   server is authenticated to the client (or client and server are
+   mutually authenticated) using standard TLS procedures, and keying
+   material is generated in order to create a cryptographically secure
+   tunnel for information exchange in the subsequent data phase.  During
+   the data phase, the client is authenticated to the server (or client
+   and server are mutually authenticated) using an arbitrary
+   authentication mechanism encapsulated within the secure tunnel.  The
+   encapsulated authentication mechanism may itself be EAP, or it may be
+   another authentication protocol such as PAP, CHAP, MS-CHAP, or MS-
+   CHAP-V2.  Thus, EAP-TTLS allows legacy password-based authentication
+   protocols to be used against existing authentication databases, while
+   protecting the security of these legacy protocols against
+   eavesdropping, man-in-the-middle, and other attacks.  The data phase
+   may also be used for additional, arbitrary data exchange.
+</pre>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>eap</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<h1 id="toc_1" class="justcenter">EAP</h1>
+<h2 id="toc_1.1" class="justcenter">链路层框架</h2>
+<p>
+ EAP typically runs directly over data link layers such as
+Point-to-Point Protocol (PPP) or IEEE 802, without requiring IP.  EAP
+   provides its own support for duplicate elimination and
+   retransmission, but is reliant on lower layer ordering guarantees.
+   Fragmentation is not supported within EAP itself; however, individual
+   EAP methods may support this.
+</p>
+   
+<p>
+ EAP encapsulation on IEEE 802 wired media is described in [IEEE-802.1X],
+   and encapsulation on IEEE wireless LANs in [IEEE-802.11i]
+</p>
+   
+<p>
+The EAP authentication exchange proceeds as follows:
+</p>
+<pre>
+[1] The authenticator sends a Request to authenticate the peer.  The
+       Request has a Type field to indicate what is being requested.
+       Examples of Request Types include Identity, MD5-challenge, etc.
+       The MD5-challenge Type corresponds closely to the CHAP
+       authentication protocol [RFC1994].  Typically, the authenticator
+       will send an initial Identity Request; however, an initial
+       Identity Request is not required, and MAY be bypassed.  For
+       example, the identity may not be required where it is determined
+       by the port to which the peer has connected (leased lines,
+         dedicated switch or dial-up ports), or where the identity is
+       obtained in another fashion (via calling station identity or MAC
+       address, in the Name field of the MD5-Challenge Response, etc.).
+
+   [2] The peer sends a Response packet in reply to a valid Request.  As
+       with the Request packet, the Response packet contains a Type
+       field, which corresponds to the Type field of the Request.
+
+   [3] The authenticator sends an additional Request packet, and the
+       peer replies with a Response.  The sequence of Requests and
+       Responses continues as long as needed.  EAP is a 'lock step'
+       protocol, so that other than the initial Request, a new Request
+       cannot be sent prior to receiving a valid Response.  The
+       authenticator is responsible for retransmitting requests as
+       described in Section 4.1.  After a suitable number of
+       retransmissions, the authenticator SHOULD end the EAP
+       conversation.  The authenticator MUST NOT send a Success or
+       Failure packet when retransmitting or when it fails to get a
+       response from the peer.
+
+   [4] The conversation continues until the authenticator cannot
+       authenticate the peer (unacceptable Responses to one or more
+       Requests), in which case the authenticator implementation MUST
+       transmit an EAP Failure (Code 4).  Alternatively, the
+       authentication conversation can continue until the authenticator
+       determines that successful authentication has occurred, in which
+       case the authenticator MUST transmit an EAP Success (Code 3).
+
+</pre>
+
+<p>
+Advantages:
+</p>
+<pre>
+ o  The EAP protocol can support multiple authentication mechanisms
+      without having to pre-negotiate a particular one.
+
+   o  Network Access Server (NAS) devices (e.g., a switch or access
+      point) do not have to understand each authentication method and
+      MAY act as a pass-through agent for a backend authentication
+      server.  Support for pass-through is optional.  An authenticator
+      MAY authenticate local peers, while at the same time acting as a
+      pass-through for non-local peers and authentication methods it
+      does not implement locally.
+
+   o  Separation of the authenticator from the backend authentication
+      server simplifies credentials management and policy decision
+      making.
+</pre>
+
+
+<pre>
+An EAP conversation MAY utilize a sequence of methods.  A common
+   example of this is an Identity request followed by a single EAP
+   authentication method such as an MD5-Challenge.  However, the peer
+   and authenticator MUST utilize only one authentication method (Type 4
+   or greater) within an EAP conversation, after which the authenticator
+   MUST send a Success or Failure packet.
+</pre>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

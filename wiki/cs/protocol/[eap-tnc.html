@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>[eap-tnc</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<p>
+1. TTLS TLS MD5 TNC的关系
+TTLS包括两部分，前半部分是TLS，后半部分可以嵌入其他EAP方法。
+</p>
+
+<p>
+TLS提供客户端认证服务器证书（或互相认证）的方法，而TLS交换的就是证书，利用
+证书交换会话密钥，从而建立加密信道，增强之后的EAP-MD5等嵌入式协议。
+</p>
+
+<p>
+EAP-MD5这种协议，本身是和EAP-TTLS EAP-TLS同一级别的，只是EAP-TTLS这个会话可以
+提出多个会话（不会支持）嵌入在一个加密会话中进行的功能，这就是TLS和TTLS的区别，
+TLS仅仅是TTLS的前半部分，用于证书验证，单纯的EAP-TLS就只做TTLS前半部分的事情。
+</p>
+
+<pre>
+In EAP-TLS, a TLS handshake is used to mutually authenticate a client
+   and server.  EAP-TTLS extends this authentication negotiation by
+   using the secure connection established by the TLS handshake to
+   exchange additional information between client and server.  In EAP-
+   TTLS, the TLS authentication may be mutual; or it may be one-way, in
+   which only the server is authenticated to the client.  The secure
+   connection established by the handshake may then be used to allow the
+   server to authenticate the client using existing, widely deployed
+   authentication infrastructures.  The authentication of the client may
+   itself be EAP, or it may be another authentication protocol such as
+   PAP, CHAP, MS-CHAP or MS-CHAP-V2.
+
+</pre>
+
+
+<p>
+2.ca.pem 是CA的证书，不是客户端，也不是服务端
+</p>
+
+<pre>
+ As part of the TLS handshake protocol, the TTLS server will send its
+   certificate along with a chain of certificates leading to the
+   certificate of a trusted CA.  The client will need to be configured
+   with the certificate of the trusted CA in order to perform the
+   authentication.
+</pre>
+
+<p>
+TLS的过程，实际上是服务器端利用CA给的证书（服务器的）向客户端证明自己的过程，在TNC中，ca其实就是服务器自己，只是为了完成协议才这么做。服务器除了ca.pem 之外，当然会有ca的私钥去签证书，客户端则只需要ca.pem CA的公钥去验证服务器的证书。
+下面这段话：
+</p>
+
+<pre>
+TLS is used to authenticate the TTLS server to the
+   client and, optionally, the client to the TTLS server.  
+</pre>
+   
+<p>
+   optionally,说明客户端没有必要让CA签证书，然后发给服务器，所以在TNC中，为了求简单，就省去这一步（实际上想想，TNC中,为了简单，CA由认证服务器担任，如果硬是要客户端去签证明，就变成鸡生蛋了。至于为什么可以简单化，因为在TNC中，我们面对的是一个交换机，一个服务器，根本就没有必要认证服务器的真伪，不像广域环境才会可能有中间人攻击，所以就简单化了，换句话说，如果想在其它地方搭TNC，比如无线，CA的选择本身会成很大问题！）
+</p>
+   
+   
+<p>
+3. 下一步
+</p>
+
+<p>
+完成第一步(2)之后，信道就建立起来，所谓的信道，其实是利用TLS交换的证书发起会话密钥交换，之后加密进行下一步MD5 TNC信息的加密封装。换句话说，MD5 TNC这些独立的协议，本身可以裸着当做一个会话协议去做，级别和TTLS一样，但是是明文的，MD5便会受字典攻击，TNC自不必说。
+</p>
+
+<p>
+至于会话密钥的安全传输，典型的情况是，服务器发自己的证书给客户端（相当于客户端有服务器的公钥），并告诉客户端说你发个会话密钥给我。客户端收到请求，生成密钥，并用服务器的公钥加密，传给服务器。于是开始加密交谈。
+</p>
+
+<p>
+这里又扯到为什么客户端不需要发自己的证书让服务器证明客户端的身份了。可以看到至少会话密钥的交换是不需要服务器知道客户端的公钥的，这是其一。
+其二，在TNC框架下，验证客户端身份是靠MD5和TNC，而不是靠证书，所以可以省略，当然在一些场合如果需要，那么就得选择一个完美的CA去做证书分发了，反正这里不需要。
+</p>
+
+<p>
+下面这段：
+</p>
+<pre>
+   EAP-TTLS specifies how user authentication may be performed during
+   phase 2.  The user authentication may itself be EAP, or it may be a
+   legacy protocol such as PAP, CHAP, MS-CHAP, or MS-CHAP-V2.  Phase 2
+   user authentication may not always be necessary, since the user may
+   already have been authenticated via the mutual authentication option
+   of the TLS handshake protocol.
+</pre>
+
+<p>
+说明TLS提供的客户端证书以及后面的MD5什么的，本身就是两个可以互相替代的东西。
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

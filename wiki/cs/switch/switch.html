@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>switch</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<h1 id="toc_1">交换机知识</h1>
+
+<h2 id="toc_1.1">备份</h2>
+<p>
+用ftp可以将交换机中的配置down下来，如华为：
+</p>
+
+<pre>
+display current-configuration 出来的文本不能直接拿来做命令用
+但是你可以在全局模式下dir看看 应该有vrpcfg.zip文件 这个是当前配置文件
+步骤 1   首先打开ftp服务
+ 设置设备为 FTP 服务器 在 S-switch 上启动 FTP 服务，并配置 FTP 用户名 ftpuser，口令 ftppwd。
+&lt;Quidway&gt; system-view 
+[Quidway] ftp server enable 
+[Quidway] aaa 
+[Quidway-aaa] local-user ftpuser password simple ftppwd 
+[Quidway-aaa] local-user ftpuser service-type ftp 
+[Quidway-aaa] local-user ftpuser ftp-directory flash:/ 
+[Quidway-aaa] return 
+
+步骤 2 配置设备 IP 
+&lt;Quidway&gt; system-view 
+[Quidway] vlan 1 
+[Quidway] interface vlanif 1 
+[Quidway-Vlanif1] ip address 1.1.1.1 24 
+[Quidway-Vlanif1] quit 
+
+步骤 3 在 PC 上执行 ftp ip-address 命令，与设备建立 FTP 连接，并进入 FTP 客户端视图。 
+C:\&gt;ftp 1.1.1.1 
+Connected to 1.1.1.1. 220 
+FTP service ready. 
+User (1.1.1.2:(none)): ftpuser 
+331 Password required for 
+Password: 230 
+User logged in. 
+ftp&gt; 
+
+</pre>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>
