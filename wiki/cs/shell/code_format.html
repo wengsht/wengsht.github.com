@@ -1,0 +1,357 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>code_format</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<p>
+<a href="%toc.html">%toc</a> 
+</p>
+<h1 id="toc_1">shell语法</h1>
+<h2 id="toc_1.1">安全</h2>
+<ul>
+<li>
+有一些shell攻击基于修改 <code>IFS</code>,因此在脚本文件前面最后有一句 <code>IFS=" " </code> 最好包括空格tab和换行    
+
+</ul>
+ 
+<h4 id="toc_1.1.0.1">重定向</h4>
+<p>
+重定向到标准流要利用 <code>&amp;</code> 如： <code>echo a 1&gt;&amp;2</code>
+</p>
+
+<h2 id="toc_1.2">命令行参数</h2>
+<table>
+<tr>
+<td>
+<code>$1</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+第一个参数
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>$(10)</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+第10个参数
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>$#</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+参数个数
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>$*</code>
+</td>
+<td>
+<code>$@</code>
+</td>
+<td>
+一次表示所有参数
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>"$*"</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+等同于 <code>"\(1 \)2 $3 ..."</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>"$@"</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+等同于 <code>"\(1" "\)2" "$3" ...</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<p>
+注： 上述出现 <code>\( \)</code> 都是vimwiki转义问题，实际上都是 <code>$</code>
+</p>
+
+<h2 id="toc_1.3">变量</h2>
+<h3 id="toc_1.3.1">常用命令</h3>
+<table>
+<tr>
+<td>
+<code>export</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>export -p</code>
+</td>
+<td>
+打印所有被export的变量
+</td>
+</tr>
+<tr>
+<td>
+<code>readonly</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>readonly -p</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>unset -v variable</code>
+</td>
+<td>
+默认选项-v
+</td>
+</tr>
+<tr>
+<td>
+<code>unset -f function</code>
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<code>env -i PATH=XX ls</code>
+</td>
+<td>
+先修改PATH再ls
+</td>
+</tr>
+</table>
+
+<h3 id="toc_1.3.2">内置变量表</h3>
+<table>
+<tr>
+<td>
+<code>#</code>
+</td>
+<td>
+目前进程参数个数
+</td>
+</tr>
+<tr>
+<td>
+<code>@</code>
+</td>
+<td>
+传递给当前进程的命令行参数
+</td>
+</tr>
+<tr>
+<td>
+<code>*</code>
+</td>
+<td>
+当前进程的命令行参数
+</td>
+</tr>
+<tr>
+<td>
+<code>-</code>
+</td>
+<td>
+选项列表
+</td>
+</tr>
+<tr>
+<td>
+<code>?</code>
+</td>
+<td>
+前一个命令退出状态
+</td>
+</tr>
+<tr>
+<td>
+<code>$</code>
+</td>
+<td>
+PID
+</td>
+</tr>
+<tr>
+<td>
+<code>0</code>
+</td>
+<td>
+shell程序的名称
+</td>
+</tr>
+<tr>
+<td>
+<code>!</code>
+</td>
+<td>
+最后一个后台命令的进程编号
+</td>
+</tr>
+</table>
+
+<p>
+<img src="shell_variable.png" />
+</p>
+
+<h3 id="toc_1.3.3">取值方法</h3>
+<table>
+<tr>
+<td>
+${a:-b}
+</td>
+<td>
+如果a存在且非null，则返回a的值，反则返回b
+</td>
+</tr>
+<tr>
+<td>
+${a:=b}
+</td>
+<td>
+同上，不过a同时赋值b
+</td>
+</tr>
+<tr>
+<td>
+${a:?b}
+</td>
+<td>
+a存在非null返回a的值~否则，输出<code>a: b</code> 并退出
+</td>
+</tr>
+<tr>
+<td>
+${a:+b}
+</td>
+<td>
+a存在非null返回b，否则返回null
+</td>
+</tr>
+</table>
+
+<p>
+以上表达式去掉<code>:</code>的话各效果去掉 <code>非null</code>
+</p>
+
+<h2 id="toc_1.4">调试</h2>
+<h3 id="toc_1.4.1">开启命令跟踪</h3>
+<pre>
+set -x
+something   # 执行时被输出原话
+set +x
+</pre>
+
+<h2 id="toc_1.5">分支与循环</h2>
+<p>
+<a href="if-loop.html">if-loop</a>
+</p>
+
+<h2 id="toc_1.6">函数</h2>
+<pre>
+f()
+{
+    echo $1
+    echo $2
+}
+
+f "a" "b"
+f a b
+
+</pre>
+
+
+<h2 id="toc_1.7">exec</h2>
+<p>
+替代原shell进程，原shell进程不再继续运行
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

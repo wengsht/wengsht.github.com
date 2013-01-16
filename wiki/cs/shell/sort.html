@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>sort</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,9 +38,96 @@
     <body>
         <div class="content">
         
+<h1 id="toc_1">sort</h1>
+<h2 id="toc_1.1">选项</h2>
+<table>
+<tr>
+<td>
+-b
+</td>
+<td>
+忽略开头空白
+</td>
+</tr>
+<tr>
+<td>
+-d
+</td>
+<td>
+字典序
+</td>
+</tr>
+<tr>
+<td>
+-g
+</td>
+<td>
+浮点数序
+</td>
+</tr>
+<tr>
+<td>
+-n
+</td>
+<td>
+整数序
+</td>
+</tr>
+<tr>
+<td>
+-f
+</td>
+<td>
+忽略大小写
+</td>
+</tr>
+<tr>
+<td>
+-k
+</td>
+<td>
+定义排序键值
+</td>
+</tr>
+<tr>
+<td>
+-o outfile
+</td>
+<td>
+输出到文件
+</td>
+</tr>
+<tr>
+<td>
+-r
+</td>
+<td>
+倒序
+</td>
+</tr>
+<tr>
+<td>
+-t char
+</td>
+<td>
+指定分隔符
+</td>
+</tr>
+<tr>
+<td>
+-u
+</td>
+<td>
+丢弃相同键值的行
+</td>
+</tr>
+</table>
 
+<h2 id="toc_1.2">-k</h2>
 <p>
-<img src="Expert-C.png" />
+<code>-k2.4,5.6</code>  从第二段第4个字符到第5段第6个字符
+<code>-k 2 -k 5</code> 2作为第一个键值，5作为备用键值
+<code>-k3gr</code> 第3个 浮点数 反向
 </p>
 
         </div>

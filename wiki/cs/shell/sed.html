@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>sed</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,9 +38,154 @@
     <body>
         <div class="content">
         
+<h1 id="toc_1">sed</h1>
+<h2 id="toc_1.1">简单应用</h2>
 
 <p>
-<img src="Expert-C.png" />
+强大的文本替换
+</p>
+
+<p>
+基本语法
+</p>
+
+<p>
+<code>sed 's;a;b;'</code>
+</p>
+
+<p>
+把a替换成b，s后面规定了界定符，如果a中出现<code>;</code>则需要<code>\;</code>转义
+</p>
+
+<p>
+结合后向引用可以形成很强大的功能。如：
+</p>
+
+<p>
+<code>find /Users/wengsht/Dropbox/wiki | grep -e png -e jpg | sed 's;\(^.*$\);\1 \1;' | sed 's;^;cp ;' | sed 's;Dropbox/wiki;Program/wengsht.github.com/wiki;2' | sh</code>
+</p>
+
+<p>
+实现将wiki中的图片拷贝到相应的html目录下。
+</p>
+
+<h2 id="toc_1.2">完整语法</h2>
+<h3 id="toc_1.2.1">范围</h3>
+<p>
+上面的简单应用实际上是应用于所有的行，实际上我们可以限制命令应用于那些行，如：
+</p>
+
+<ul>
+<li>
+使用正则表达式
+
+</ul>
+
+<p>
+<code>sed '/html/ s/a/b/g'</code>
+</p>
+
+<ul>
+<li>
+多行
+
+</ul>
+
+<p>
+<code>sed -n '10,42p'</code>
+<code>sed '/a/,/b/ s/a/b/g'</code>  匹配含a行到含b行
+</p>
+
+<p>
+将含html的行上面的a替换成b
+</p>
+
+<h2 id="toc_1.3">参数表</h2>
+<table>
+<tr>
+<td>
+-e
+</td>
+<td>
+多模式，参考grep
+</td>
+</tr>
+<tr>
+<td>
+-f
+</td>
+<td>
+从脚本文件中读取命令,用以取代-e选项
+</td>
+</tr>
+<tr>
+<td>
+-n
+</td>
+<td>
+仅现实p处理的行，p的位置和g一样,可以并列
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.4">选项表</h2>
+<table>
+<tr>
+<td>
+p
+</td>
+<td>
+打印标记
+</td>
+</tr>
+<tr>
+<td>
+g
+</td>
+<td>
+全局
+</td>
+</tr>
+<tr>
+<td>
+d
+</td>
+<td>
+删除匹配行
+</td>
+</tr>
+<tr>
+<td>
+数字
+</td>
+<td>
+处理第数字个匹配
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.5">技巧</h2>
+
+<ul>
+<li>
+<code>&amp;</code>的使用
+
+</ul>
+<blockquote>
+在替换串中出现，表示被替换串， 如 <code>sed 's;a;&amp;b;'</code> 将<code>a</code>替换成<code>ab</code>
+</blockquote>
+    
+<ul>
+<li>
+<code>g</code> 全局替换 <code>2</code> 替换第二个
+
+<li>
+使用-n和p实现打印特殊行
+
+</ul>
+
+<p>
+<code>sed -n '/&lt;html&gt;/p'</code> 打印含<code>&lt;html&gt;</code>的行
 </p>
 
         </div>

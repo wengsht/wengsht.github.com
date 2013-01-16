@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>diff</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,10 +38,18 @@
     <body>
         <div class="content">
         
-
+<h1 id="toc_1">diff patch</h1>
 <p>
-<img src="Expert-C.png" />
+实例：
 </p>
+
+<pre>
+
+diff -d a b &gt; c
+cd a
+patch -p1 &lt; ../c
+
+</pre>
 
         </div>
     </body>

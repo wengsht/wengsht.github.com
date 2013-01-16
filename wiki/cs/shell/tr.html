@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>tr</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -39,9 +39,19 @@
         <div class="content">
         
 
+<h2 id="toc_0.1">tr</h2>
+<pre>
+echo aaabcaA | tr -d '[:lower:]'    #  A
+echo aaabcaA | tr -s a   #  abcaA
+</pre>
+
 <p>
-<img src="Expert-C.png" />
+如加入 -c 则 -d 和 -s 变成取补
 </p>
+<pre>
+echo aaabcaA | tr -c -d '[:lower:]'    #  aaabca
+echo aaabcaAA | tr -c -s a   #  aaabcaA
+</pre>
 
         </div>
     </body>

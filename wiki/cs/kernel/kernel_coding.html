@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>kernel_coding</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<h1 id="toc_1">内核编程</h1>
+<h2 id="toc_1.1">常见错误</h2>
+<p>
+<code>__moddi3 undefined</code>
+原因是内核对64位除法的支持。
+</p>
+
+<pre>
+今天编译内核遇到这个warning： WARNING: “__moddi3″ undefined!
+
+尽管是个warning，但插入内核时会提示 -1 符号找不到。
+
+［追根溯源］
+
+冷静一下分析一下原因吧 ，首先去内核里面去找任何关于moddi3 的东西：
+分别在frv_ksyms.c ,ia64_ksyms.c ,h8300_ksyms.c ,parisc_ksyms.c定义了原型：
+
+extern void __moddi3(void);
+
+以上c文件（在arch/XXX/kernel）都是定义和体系结构的有关的符号，并导出。（只知道Ia64，其他的是啥子CPU啊）
+
+以及exports.c （在arch/tile/lib/）定义原型：
+
+int64_t __moddi3(int64_t dividend, int64_t divisor);
+
+可见这个__moddi3 是体系相关，而且都是64位。 mod 应该是求商/求余相关，难道是这个符号是用来做64位除法？
+
+我有用64位除法吗？ 翻了翻代码找到了这句：
+
+int omg_data_size=0;
+
+……….
+
+omg_data_size=*(OMG_SIZE_INFO_OFFSET+user_buffer+0)&lt;&lt;24;
+omg_data_size+=*(OMG_SIZE_INFO_OFFSET+user_buffer+1)&lt;&lt;16;
+omg_data_size+=*(OMG_SIZE_INFO_OFFSET+user_buffer+2)&lt;&lt;8;
+………..
+
+omg_size=(omg_data_size/0x3f18)*8+omg_data_size+8;
+
+………..
+
+__distance_to_header=(*ppos-0x5a)%0x3f10;
+
+哦，我明白了，omg_data_size 是有通过移位运算的，int 是32位，左移之后gcc将变量转换为64位。然后做了一次求商。另外ppos应该也是一个超长的值用来寻址大缓存（查了一下资料说“在32位体系中也至少是64位宽” ）。所以gcc应该会去找__moddi3 这个符号。可惜的是我的体系结构是X86没有定义这个符号，于是乎就发生了杯具的一幕。
+
+［柳暗花明］
+
+内核提供一个正确处理这种情况的函数：do_div(n,base)。此处do_div得到的结果是余数，而真正的a/b的结果，是用a来保存的。 do_div(n,base)的具体定义，和当前体系结构有关（这是毫无疑问的，不然就不是内核态了，用glibc就可以摆平），对于arm平台，在 arch/arm/include/asm/div64.h，对于x86在arch/x86/include/asm/div64.h。  其实现很复杂，先不深究了。
+
+因为do_div将商保存在被除数中，把原值覆盖了，所以实际运用时要用临时变量保存被除数。
+
+使用do_div()，需要先 #include &lt;linux/math64.h&gt; 这个不能少。
+
+另外内核还提供一些其他处理64位除法的函数：
+
+static inline u64 div_u64(u64 dividend, u32 divisor); //对应无符号64位被除数
+static inline s64 div_s64(s64 dividend, s32 divisor)；//对应有符号64位被除数
+static inline u64 div_u64_rem(u64 dividend, u32 divisor, u32 *remainder)；//对应无符号64位被除数，remainder为余数
+
+static inline s64 div_s64_rem(s64 dividend, s32 divisor, s32 *remainder)；//对应有符号64位被除数，remainder为余数
+
+</pre>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

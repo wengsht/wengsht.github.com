@@ -1,0 +1,226 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>system</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<div class="toc">
+<ul>
+<li><a href="#toc_1">系统管理工具</a>
+<ul>
+<li><a href="#toc_1.1">ps</a>
+<li><a href="#toc_1.2">top</a>
+<li><a href="#toc_1.3">stat</a>
+<li><a href="#toc_1.4">信号键</a>
+<li><a href="#toc_1.5">kill</a>
+<li><a href="#toc_1.6">trap</a>
+<li><a href="#toc_1.7">sleep</a>
+<li><a href="#toc_1.8">at</a>
+<li><a href="#toc_1.9">crontab</a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">系统管理工具</h1>
+<p>
+== ==
+</p>
+
+<h2 id="toc_1.1">ps</h2>
+
+<h2 id="toc_1.2">top</h2>
+
+<h2 id="toc_1.3">stat</h2>
+<table>
+<tr>
+<td>
+iostat
+</td>
+<td>
+io
+</td>
+</tr>
+<tr>
+<td>
+netstat
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+nfsstat
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+uptime
+</td>
+<td>
+开机至今的用户数时间和负载(等待执行的进程数)
+</td>
+</tr>
+<tr>
+<td>
+vmstat vm_stat
+</td>
+<td>
+内存
+</td>
+</tr>
+<tr>
+<td>
+w
+</td>
+<td>
+谁登陆了，在干嘛
+</td>
+</tr>
+<tr>
+<td>
+xcpustate
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+xload
+</td>
+<td>
+X 桌面系统下
+</td>
+</tr>
+</table>
+
+
+<h2 id="toc_1.4">信号键</h2>
+<table>
+<tr>
+<td>
+Ctrl-c
+</td>
+<td>
+intr
+</td>
+</tr>
+<tr>
+<td>
+Ctrl-y
+</td>
+<td>
+dsusp，暂时搁置，输入更新时自动fg 可以jobs出
+</td>
+</tr>
+<tr>
+<td>
+Ctrl-z
+</td>
+<td>
+susp 暂时搁置 ,即bg，可以fg回来
+</td>
+</tr>
+<tr>
+<td>
+Ctrl-\
+</td>
+<td>
+quit 以核心转储的方式杀除
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.5">kill</h2>
+<p>
+向进程传递信号，而不仅仅用于删除， 可以<code>kill -l</code>查看具体的信号种类,同时用<code>man -a signal</code>查看对应的号码
+</p>
+
+<p>
+<code>-9</code>就是<code>KILL</code> 而 <code>-15</code>是<code>TERM</code>. <code>KILL</code>是软件没有办法截获的，所以可以用于强杀，而<code>TERM</code>可以截获
+</p>
+
+<p>
+<code>kill -STOP pid</code>
+</p>
+
+<h2 id="toc_1.6">trap</h2>
+<p>
+trap可以在信号来到时处理钩子 如<code>EXIT</code> <code>DEBUG</code> <code>ERR</code>
+</p>
+
+<h2 id="toc_1.7">sleep</h2>
+<p>
+sleep double_second  秒为单位支持小数
+</p>
+
+<h2 id="toc_1.8">at</h2>
+<pre>
+at TIME &lt; command-file
+</pre>
+
+<h2 id="toc_1.9">crontab</h2>
+<table>
+<tr>
+<td>
+-l
+</td>
+<td>
+列出
+</td>
+</tr>
+<tr>
+<td>
+-e
+</td>
+<td>
+编辑
+</td>
+</tr>
+</table>
+
+<p>
+分 时 日 月 星期 command
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

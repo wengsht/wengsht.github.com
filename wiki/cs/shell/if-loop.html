@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>if-loop</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,10 +38,57 @@
     <body>
         <div class="content">
         
+<h1 id="toc_1">分支</h1>
+<h2 id="toc_1.1">典型例子</h2>
+
+<pre>
+if grep a file 
+then
+    echo a
+elif grep b file 
+then 
+    echo b
+else
+    echo c
+fi
+</pre>
 
 <p>
-<img src="Expert-C.png" />
+值得注意的是 grep 成功返回的 <code>$? = 0</code> 此时<code>if</code>反而成功了。
 </p>
+
+<h2 id="toc_1.2">test</h2>
+<p>
+<code>test expression </code> 与 <code>[ expression ]</code>
+</p>
+
+<p>
+<img src="test1.png" />
+<img src="test2.png" />
+</p>
+
+<h2 id="toc_1.3">case</h2>
+<pre>
+case $1 in
+-f)
+-d | --directory)  # 多个选择
+*)  #default
+esac
+</pre>
+
+<h2 id="toc_1.4">for</h2>
+<pre>
+for i in *.cpp
+do 
+    cat $i
+done
+
+# 默认循环 "$*"
+for i
+do 
+    cat $i
+done
+</pre>
 
         </div>
     </body>

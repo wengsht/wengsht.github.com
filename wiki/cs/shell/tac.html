@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>tac</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,10 +38,24 @@
     <body>
         <div class="content">
         
+<h1 id="toc_1">tac</h1>
+<p>
+逆着输出，默认分隔符是换行。
+</p>
 
 <p>
-<img src="Expert-C.png" />
+<code>-s</code>指定分隔符, 如<code>-s:</code>
 </p>
+
+<p>
+实例
+</p>
+
+<pre>
+$ a=`printf %016x 0x7fffffffe090 | tac -rs..` 
+$ echo $a 
+90e0ffffff7f0000
+</pre>
 
         </div>
     </body>

@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>expert-c</title>
+        <title>find</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,9 +38,116 @@
     <body>
         <div class="content">
         
+<h1 id="toc_1">find</h1>
+<h2 id="toc_1.1">常用选项</h2>
+<table>
+<tr>
+<td>
+-name 'pattern'
+</td>
+<td>
+不解释
+</td>
+</tr>
+<tr>
+<td>
+-type d/f/l
+</td>
+<td>
+目录 文件 符号链接
+</td>
+</tr>
+<tr>
+<td>
+-user wengsht
+</td>
+<td>
+用户所有
+</td>
+</tr>
+<tr>
+<td>
+-perm mask
+</td>
+<td>
+权限
+</td>
+</tr>
+<tr>
+<td>
+-size n
+</td>
+<td>
+大小
+</td>
+</tr>
+<tr>
+<td>
+-ls
+</td>
+<td>
+ls的显示模式
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.2">perm</h2>
+<p>
+<code>-perm -002</code>检查最小权限，比如<code>002</code>匹配<code>772</code>
+<code>-perm 002</code> 则为固定匹配
+<code>-perm +002</code> 则
+<table>
+<tr>
+<td>
+<code>-perm -002</code>
+</td>
+<td>
+其他人可写入的文件
+</td>
+</tr>
+<tr>
+<td>
+<code>-perm -444</code>
+</td>
+<td>
+任何人可以读取
+</td>
+</tr>
+<tr>
+<td>
+<code>! -perm -444</code>
+</td>
+<td>
+任何人不可以读取
+</td>
+</tr>
+<tr>
+<td>
+<code>-perm +007</code>
+</td>
+<td>
+其他人可以访问的文件
+</td>
+</tr>
+<tr>
+<td>
+<code>! -perm +007</code>
+</td>
+<td>
+其他人无法访问的文件
+</td>
+</tr>
+</table>
+</p>
+
+
+<h2 id="toc_1.3">size</h2>
+<p>
+默认单位是512bytes，可以在数字后面指定单位为 <code>c</code>B <code>k</code>KB 
+</p>
 
 <p>
-<img src="Expert-C.png" />
+数字前面有正负号的话，表示大于数字或者小于
 </p>
 
         </div>

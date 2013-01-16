@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>tools</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<div class="toc">
+<ul>
+<li><a href="#toc_1">shell脚本编程工具</a>
+<ul>
+<li><a href="#toc_1.1">tr 删除字符</a>
+<li><a href="#toc_1.2">grep</a>
+<li><a href="#toc_1.3">pgrep</a>
+<li><a href="#toc_1.4">sed</a>
+<li><a href="#toc_1.5">cut 行内截取</a>
+<li><a href="#toc_1.6">hexdump strings 二进制文本查看</a>
+<li><a href="#toc_1.7">iconv uconv 文本转码</a>
+<li><a href="#toc_1.8">awk</a>
+<li><a href="#toc_1.9">sort 排序</a>
+<li><a href="#toc_1.10">uniq 删除同记录</a>
+<li><a href="#toc_1.11">wc 统计字数</a>
+<li><a href="#toc_1.12">tac 反向输出</a>
+<li><a href="#toc_1.13">touch 创建文件或更新创建时间</a>
+<li><a href="#toc_1.14">dd 拷贝</a>
+<li><a href="#toc_1.15">/dev/random /dev/urandom 随机数流</a>
+<li><a href="#toc_1.16">find 文件查找</a>
+<li><a href="#toc_1.17">lynx xmlstarlet html和xml文本处理</a>
+<li><a href="#toc_1.18">netstat</a>
+<li><a href="#toc_1.19">xargs 输入流传递命令行参数</a>
+<li><a href="#toc_1.20">df du 磁盘信息</a>
+<li><a href="#toc_1.21">diff patch 版本管理</a>
+<li><a href="#toc_1.22">系统管理工具集</a>
+<li><a href="#toc_1.23">正则表达式</a>
+</ul>
+</ul>
+</div>
+
+<h1 id="toc_1">shell脚本编程工具</h1>
+<h2 id="toc_1.1">tr 删除字符</h2>
+<p>
+可以删除file中的某字符(d)或者重复(s)的某字符。例子:
+</p>
+
+<p>
+<a href="tr.html">tr</a>
+</p>
+
+<h2 id="toc_1.2">grep</h2>
+<p>
+文本查找工具。
+<a href="grep.html">grep</a>
+</p>
+
+<h2 id="toc_1.3">pgrep</h2>
+<p>
+查找进程id
+</p>
+
+<h2 id="toc_1.4">sed</h2>
+<p>
+文本替换工具
+<a href="sed.html">sed</a>
+</p>
+
+<h2 id="toc_1.5">cut 行内截取</h2>
+<p>
+行文本截取工具
+<a href="cut.html">cut</a>
+</p>
+
+<h2 id="toc_1.6">hexdump strings 二进制文本查看</h2>
+
+<h2 id="toc_1.7">iconv uconv 文本转码</h2>
+
+<h2 id="toc_1.8">awk</h2>
+<p>
+强大不解释
+</p>
+
+<p>
+<a href="awk.html">awk</a>
+</p>
+
+
+<h2 id="toc_1.9">sort 排序</h2>
+<p>
+<a href="sort.html">sort</a>
+</p>
+
+<h2 id="toc_1.10">uniq 删除同记录</h2>
+<p>
+<a href="uniq.html">uniq</a>
+</p>
+
+<h2 id="toc_1.11">wc 统计字数</h2>
+
+<p>
+<a href="wc.html">wc</a>
+</p>
+
+<h2 id="toc_1.12">tac 反向输出</h2>
+
+<p>
+<a href="tac.html">tac</a>
+</p>
+
+<h2 id="toc_1.13">touch 创建文件或更新创建时间</h2>
+
+<h2 id="toc_1.14">dd 拷贝</h2>
+<p>
+<code>dd count=1 ibs=1024 if=1.cpp of=2.cpp</code>
+</p>
+
+<h2 id="toc_1.15">/dev/random /dev/urandom 随机数流</h2>
+<p>
+可以重定向利用这两个设备产生随机数，random会锁，urandom共享但随机性较低
+</p>
+
+<h2 id="toc_1.16">find 文件查找</h2>
+<p>
+<a href="find.html">find</a>
+</p>
+
+<h2 id="toc_1.17">lynx xmlstarlet html和xml文本处理</h2>
+
+<h2 id="toc_1.18">netstat</h2>
+<p>
+<code>netstat -lntp</code> <code>lsof</code>
+</p>
+
+<h2 id="toc_1.19">xargs 输入流传递命令行参数</h2>
+<p>
+<code>getconf ARG_MAX</code> 可以看到命令行参数的最大限制，使用xargs可以实现从输入中读取来代替命令行
+<code>find -name 1.cpp | xargs grep main</code> 
+</p>
+
+<h2 id="toc_1.20">df du 磁盘信息</h2>
+<p>
+<a href="df.html">df</a>
+</p>
+
+<h2 id="toc_1.21">diff patch 版本管理</h2>
+<p>
+<a href="diff.html">diff</a>
+</p>
+
+<h2 id="toc_1.22">系统管理工具集</h2>
+<p>
+<a href="system.html">system</a>
+</p>
+
+<h2 id="toc_1.23">正则表达式</h2>
+<p>
+<a href="format.html">正则表达式</a>
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>
