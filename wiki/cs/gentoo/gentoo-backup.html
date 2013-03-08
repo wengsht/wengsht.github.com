@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>gentoo</title>
+        <title>gentoo-backup</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,50 +38,84 @@
     <body>
         <div class="content">
         
-<h1 id="toc_1">记录gentoo</h1>
 
-<h2 id="toc_1.1">gentoo自启动</h2>
-<ul>
-<li>
-rc.update add xx default (/etc/init.d/xx)
-
-<li>
-add to /etc/conf.d/local.start
-
-</ul>
-
-<h2 id="toc_1.2">ubuntu 自启动</h2>
-<ul>
-<li>
-普通脚本 : <code>/etc/rc.local</code>
-
-<li>
-GUI程序： 搜索一下<code>autostart</code>, 典型的是<code>/usr/share/gnome/autostart</code> 根据<code>.desktop</code>的格式修改一个自启动GUI的东西 
-<pre>
- X-GNOME-Autostart-enabled=true
- Encoding=UTF-8
- Version=1.0
- Type=Application
- Name=guake
- Exec=/usr/bin/guake`
-</pre>
-
-</ul>
-
-<h2 id="toc_1.3">gentoo 备份与还原</h2>
 <p>
-<a href="gentoo-backup.html">gentoo备份还原</a>
+gentoo系统的高度定制与自由决定了其比其他linux发行版更需要备份还原，因为我们无法忍受从零开始消耗大量的时间及精力去从新编译系统，我不是那种天天更新天天编译的人，我需要的是一个稳定而完美的gentoo系统。为了这个目的我同样也要反复几次编译，有时一个错误就会造成无法返回无法复原的损失不得不从新从零开始。gentoo真是折磨，特别是那些硬件不咋的我。
 </p>
 
-<h2 id="toc_1.4">grub</h2>
 <p>
-grub-install --root-directory=/mnt/ /dev/sda
+一。备份gentoo
 </p>
 
-<h2 id="toc_1.5">文件系统日志修复</h2>
-<pre>
- sudo fsck.ext4 /dev/sda1 
-</pre>
+<ol>
+<li>
+切换到root
+
+</ol>
+<p>
+sudo su
+</p>
+<ol>
+<li>
+进入系统根目录
+
+</ol>
+<p>
+cd /
+</p>
+<ol>
+<li>
+执行打包命令
+
+</ol>
+<p>
+tar cvpzf linuxbackup.tgz –exclude=/proc –exclude=/lost+found –exclude=/linuxbackup.tgz –exclude=/mnt –exclude=/usr/src /
+命令解释：
+tar：linux常用的打包程序
+cvpzf：式tar的参数
+c-创建新文档
+v-处理过程中输出相关信息
+p-表示保持相同的权限
+z-调用gzip来压缩归档文件，与-x联用时调用gzip完成解压缩
+f-对普通文件操作
+linuxbackup.tgz：要打包成的文件名
+–exclude=/proc：排除/proc目录，不打包这个目录，后面也同理，记得排除自身打包的文件名
+/：表示打包linux根目录所有文件，当然了排除的文件不包含在内
+</p>
+
+<p>
+二。还原gentoo
+</p>
+
+<p>
+#提升到root
+sudo su
+</p>
+<ol>
+<li>
+进入根目录
+
+</ol>
+<p>
+cd /
+</p>
+<ol>
+<li>
+解压恢复系统
+
+</ol>
+<p>
+tar xvpfz linuxbackup.tgz -C /
+</p>
+
+<p>
+等执行完后，别急着重启系统，要记得创建你在备份时候排除的目录，手动创建，例如上面我们排除，我们需创建
+mkdir proc
+mdkir lost+found
+mkdir mnt
+mkdir sys
+这个时候你就可以重启系统了。恢复完成了,呵呵，终于可以不用每次系统坏了就重装了,大家以后都可以用这种方法来对linux系统备份与恢复了
+</p>
 
         </div>
     </body>

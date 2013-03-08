@@ -17,7 +17,7 @@
             SyntaxHighlighter.config.clipboardSwf = "../../scripts/clipboard.swf";
             SyntaxHighlighter.all();
         </script> 
-        <title>gentoo</title>
+        <title>ssh</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <div id="header">
@@ -38,50 +38,13 @@
     <body>
         <div class="content">
         
-<h1 id="toc_1">记录gentoo</h1>
-
-<h2 id="toc_1.1">gentoo自启动</h2>
-<ul>
+<h1 id="toc_1">ssh</h1>
+<h2 id="toc_1.1">scp断点续传</h2>
+<ol>
 <li>
-rc.update add xx default (/etc/init.d/xx)
+alias rscp=’rsync -v -P -e ssh’ 
 
-<li>
-add to /etc/conf.d/local.start
-
-</ul>
-
-<h2 id="toc_1.2">ubuntu 自启动</h2>
-<ul>
-<li>
-普通脚本 : <code>/etc/rc.local</code>
-
-<li>
-GUI程序： 搜索一下<code>autostart</code>, 典型的是<code>/usr/share/gnome/autostart</code> 根据<code>.desktop</code>的格式修改一个自启动GUI的东西 
-<pre>
- X-GNOME-Autostart-enabled=true
- Encoding=UTF-8
- Version=1.0
- Type=Application
- Name=guake
- Exec=/usr/bin/guake`
-</pre>
-
-</ul>
-
-<h2 id="toc_1.3">gentoo 备份与还原</h2>
-<p>
-<a href="gentoo-backup.html">gentoo备份还原</a>
-</p>
-
-<h2 id="toc_1.4">grub</h2>
-<p>
-grub-install --root-directory=/mnt/ /dev/sda
-</p>
-
-<h2 id="toc_1.5">文件系统日志修复</h2>
-<pre>
- sudo fsck.ext4 /dev/sda1 
-</pre>
+</ol>
 
         </div>
     </body>
