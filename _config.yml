@@ -1,8 +1,9 @@
 pygments: true
+lsi: false
 
             
 title: 沙漏•不倒翁
-url: https://wengsht.github.com
+url: https://wengsht.github.io
 feed: /feed.xml
 author:
     name: wengsht
