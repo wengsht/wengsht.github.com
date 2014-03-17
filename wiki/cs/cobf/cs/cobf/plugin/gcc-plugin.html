@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../../../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../../../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../../../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../../../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../../../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>gcc-plugin</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../../../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../../../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../../../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<p>
+main undefined   ---&gt;   exit(0) 不能在插件中使用 原因未知
+</p>
+
+<p>
+decl node:  记录一个declare的node
+type node:  记录一个type的node
+</p>
+
+<p>
+TREE_CODE(tree) 得到tree的id， 可以用tree_code_name[id] 得到它的含义字符串
+TREE_TYPE(tree decl) 得到一个decl node 的type node
+TYPE_NAME(tree type) 得到一个type的decl， 因为一个type可以对应多个decl，所以要用TYPE_MAIN_VARIANT, 另外，目前只测试用于class，普通的int什么的不能用。
+DECL_NAME(tree decl) 得到一个decl node 的变量名字node
+IDENTIFIER_POINTER(TREE DECL_NAME) 得到一个变量名字node的字符串名字
+</p>
+
+
+<p>
+DECL_SOURCE_FILE(tree)  DECL_SOURCE_LINE(tree)  DECL_SOURCE_LOCATION(tree) 位置相关，最后一个包括三维信息，行 列 列宽
+</p>
+
+
+<p>
+TREE_CHAIN(tree) 得到下一个tree
+</p>
+
+<p>
+CP_TYPE_CONST_P(type tree)  CP_TYPE_VOLATILE_P(type tree) 判断一个type tree的属性
+</p>
+
+<p>
+same_type_p(tree, tree) 判断两个type是否同一类型， const是位于typenode自身的属性，因此是敏感的。
+</p>
+
+<p>
+TYPE_MAIN_VARIANT(type tree) 返回一个type的主体部分的type，如const int 返回int的treenode
+</p>
+
+<p>
+TREE_TYPE 和 DECL_RETURN  的区别
+DECL_RETURN  不能用于function declaration，只能用于defined 
+</p>
+
+<p>
+DECL_ARTIFICIAL(func_decl) 暗中生成
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>

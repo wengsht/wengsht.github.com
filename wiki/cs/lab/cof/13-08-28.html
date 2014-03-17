@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../../wiki_js/jquery-ui-1.8.18.custom.js"></script>
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/wiki.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/syntaxhighlighter/styles/shCoreEmacs.css" type="text/css" />
+        <link media="all" rel="stylesheet" href="../../../wiki_styles/syntaxhighlighter/styles/shThemeEmacs.css" type="text/css" />
+
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shCore.js"></script> 
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushPython.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushBash.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+        <script type="text/javascript" src="../../../wiki_js/wiki_js.js"></script>
+       
+        <script type="text/javascript" src="../../../wiki_styles/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = "../../../scripts/clipboard.swf";
+            SyntaxHighlighter.all();
+        </script> 
+        <title>13-08-28</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <div id="header">
+	<ul id="top-nav">
+		<li>
+			<a href="../../../index.html">首页</a>
+		</li>
+		<li>
+			<a href="../../../wiki.html">知识管理</a>
+		</li>
+		<li>
+			<a href="../../../diary/diary.html">日记</a>
+		</li>
+	</ul>
+</div>
+    <center style="font-family: 华文行楷; font-size: x-large; font-weight: normal; color: #FF6600">沙漏不倒翁 - 小屋</center><br />
+
+    <body>
+        <div class="content">
+        
+<h1 id="toc_1">宽敏 DAA 论文</h1>
+
+<h2 id="toc_1.1">论文解决问题</h2>
+
+<p>
+请求issuser证书的过程，使得使用证书的过程匿名，issuser不需要知道机器和证书的一一对应关系
+</p>
+
+<h2 id="toc_1.2">why DAA</h2>
+
+<p>
+EK 和 AIK问题，AIK虽然可以增强匿名性，但是防止不了CA合谋攻击
+</p>
+
+<h2 id="toc_1.3">准备知识</h2>
+
+<p>
+零知识证明
+</p>
+
+<h2 id="toc_1.4">Join Protocol</h2>
+
+<p>
+不透漏个人信息证明自己的身份
+利用随机数和Hash结合复杂的协议交换过程 ? 过程是否必须如此复杂
+</p>
+
+<h2 id="toc_1.5">问题</h2>
+<p>
+用到EK？
+离散对数，证书需要本机和issuser双方的东西拼一起,匿名保证的是使用证书过程中的匿名
+</p>
+
+
+<h1 id="toc_2">秉楠 代码混淆</h1>
+<h2 id="toc_2.1">扭曲加密变换技术</h2>
+
+<p>
+思路：用编译的中间文件OBJ作为加密的输入
+</p>
+
+<p>
+静态变换，功能不变，但是逻辑上变得不好理解
+</p>
+
+<p>
+扭曲变换方法不公开
+</p>
+
+<h3 id="toc_2.1.1">实例</h3>
+<p>
+Ollydbg 破解不了
+</p>
+
+<h2 id="toc_2.2">VMProtect</h2>
+<p>
+思路类似，但是在链接后的二进制上做
+</p>
+
+<h1 id="toc_3">下周</h1>
+<p>
+时涛 报告
+10级全体同学 报告（读研去向本科论文兴趣之类的东西）
+</p>
+
+        </div>
+    </body>
+    <center style="margin-top: 0px"><p style="padding-left: 100px;"> 主题来自 <a href="http://www.ruchee.com/">Ruchee</a> </p> </center>
+</html>
