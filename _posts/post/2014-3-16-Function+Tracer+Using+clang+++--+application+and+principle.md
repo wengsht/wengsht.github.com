@@ -8,6 +8,9 @@ tags:
 
 type: post
 ---
+
+![](/file/image/clang/clang.png)
+
 ## How to trace function call ##
 Gcc and clang have a parameter to make the function tracer automatical, which is `-finstrument-functions`, you can `man g++` and check more information for it. Here I will first make a example to show how to use it fastly.
 
