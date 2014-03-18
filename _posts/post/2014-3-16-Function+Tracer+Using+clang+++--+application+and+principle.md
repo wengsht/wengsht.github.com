@@ -1,4 +1,4 @@
--- 
+--- 
 layout: post
 title: Function Tracer Using clang++ -- application and principle
 abstract: This post will show you how to use clang++ for function tracing, and show how it work in assembly view.
