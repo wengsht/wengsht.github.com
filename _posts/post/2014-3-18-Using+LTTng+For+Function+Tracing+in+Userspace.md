@@ -1,13 +1,15 @@
 --- 
 layout: post
 title: Using LTTng For Function Tracing in Userspace
-abstract: This post will mainly show how to using lttng for function tracing in userspace, beginning with a short introduce how to install lttng and use it. 
+abstract: Mainly show how to using lttng for function tracing in userspace, beginning with a short introduce how to install lttng and use it. 
 
 tags: 
 - Personal
 
 type: post
 ---
+
+![](/file/image/lttng/lttng.png)
 
 ## Install LTTng for Userspace and Run Demo ##
 
