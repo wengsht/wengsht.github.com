@@ -11,6 +11,8 @@ type: post
 
 ![](/file/image/lttng/lttng.png)
 
+<hr/>
+
 ## Install LTTng for Userspace and Run Demo ##
 
 <hr/>
