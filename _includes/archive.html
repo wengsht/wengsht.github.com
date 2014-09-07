@@ -1,0 +1,42 @@
+<div class="divinput">
+<div class="navbar-inner">
+    <div class="container solid-bar">
+        <ul class="put-left">
+            <span style="font-size: 23px">{{ volumn }}</span>
+        </ul>
+    </div>
+</div>
+</div>
+
+<section>
+    {% capture post_year1 %}{{ date: '%Y' }}{% endcapture %}
+    <div>
+        <div>
+            {% for post in site.posts %}
+            {% if post.type == volumn %}
+            {% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+            {% if post_year1 != post_year2 %}
+            {% assign post_year1 = post_year2 %}
+        </div>
+    </div><!-- //violet-archive -->
+    <div class="violet-archive fn-clear archive-div">
+        <p class="ui-grid-2 year2">{{ post_year1 }}</p>
+        <div class="ui-grid-21 ui-grid-right ui-grid-bottom">
+            <article class="top-article fn-clear">
+            <div class="ui-grid-7 v-archive-tit">
+            {% else %}
+            <article class="article fn-clear">
+            <div class="ui-grid-7 v-archive-tit">
+            {% endif %}
+                <p class="ui-date"><span>&#8227;</span><time pubdate="{{ post.date | date: '%b %d, %Y' }}">{{ post.date | date: '%b %d' }}</time></p>
+                <h3><a class="ui-title" href="{{ post.url }}">{{ post.title }}</a></h3>
+            </div>
+            <div class="ui-grid-14 v-archive-det">
+                <p class="ui-abstract">{{ post.abstract }}</p>
+            </div>
+            </article><!-- //archive -->
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div><!-- //violet-archive -->
+    </section><!-- //violet-post -->
