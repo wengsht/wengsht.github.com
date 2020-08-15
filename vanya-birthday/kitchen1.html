@@ -1,0 +1,37 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./creed.gif' />
+
+        <div class="p1"> Why are you in the kitchen! Can you tell me what do I do here? </div>
+        <br/>
+        <br/>
+        <div class="p2"> Qua..something. I need to find it in the kitchen!</div>
+
+        <div class="p3"> clue: what do we do in our house? Qua.. Qua.. Qua.. something!</div>
+
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "quarantine" || answer == "Quarantine") {
+          window.location.href = './kitchen2.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

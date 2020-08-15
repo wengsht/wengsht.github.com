@@ -1,0 +1,37 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./kelvin.gif' />
+
+        <div class="p1"> At least once a year, I like to bring in some of my Kevin's famous chili. The trick is to undercook the onions. I am serious of this stuff.<div>
+        <br/>
+        <br/>
+        <div class="p2"> Ohhhh, if only I get a better container for the best thing I make.</div>
+
+        <div class="p3"> clue: What is this box made from? </div>
+        <div class="p3"> clue: gift is a bread box. </div>
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "bamboo" || answer == "Bamboo") {
+          window.location.href = './loft.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

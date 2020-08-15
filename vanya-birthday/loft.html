@@ -1,0 +1,39 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./michael.gif' />
+
+        <div class="p1"> There's been a murden. </div>
+        <br/>
+        <br/>
+        <div class="p2"> I wonder what is the best to have this murden happen??</div>
+
+        <div class="p3"> clue: who is the murderer? </div>
+
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "phyllis" || answer == "Phyllis") {
+          window.location.href = './book.html'
+        } else if (answer == "loft" || answer == "Loft"){
+          alert('You better go there to check out whether it is the best place')
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

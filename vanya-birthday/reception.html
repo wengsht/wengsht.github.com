@@ -1,0 +1,37 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./pam.gif' />
+
+        <div class="p1"> Dunder Mifflin, this is Pam! </div>
+        <br/>
+        <br/>
+        <div class="p2"> Welcome! Tony... sorry Vanya! Our boss told us to be serious for security. To proceed, you will need to find the VIP id in this reception of our house! </div>
+
+        <div class="p3"> clue: VIP ID: <p class="p4">1234<p> too simple!</div>
+
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "4321") {
+          window.location.href = './kitchen1.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

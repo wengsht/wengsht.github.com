@@ -1,0 +1,36 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./jim.gif' />
+
+        <div class="p1"> Thanks for being the best partner of me! For this game and for our life. </div>
+        <br/>
+        <br/>
+        <div class="p2"> The final challenge is in the place where you work and you have fun! But tell me first. Again! what is your name! </div>
+
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "tony" || answer == "Tony") {
+          window.location.href = './final.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

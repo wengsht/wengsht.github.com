@@ -1,0 +1,36 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./darrl.gif' />
+
+        <div class="p1"> These people are crazy!  <div>
+        <br/>
+        <br/>
+        <div class="p2"> After so much tiring dramas. Better to find the nap spot! </div>
+        <div class="p3"> clue: What is the best hugging toy? </div>
+
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+        if (answer== "bear" || answer == "Bear") {
+          window.location.href = './sewing.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>

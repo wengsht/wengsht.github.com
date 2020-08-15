@@ -1,0 +1,41 @@
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.input1 {
+   line-height: 40px;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+
+.p {
+}
+
+div.p1 {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 80px;
+}
+
+div.p2 {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 80px;
+}
+
+div.p3 {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.p4 {
+  text-decoration:line-through
+}

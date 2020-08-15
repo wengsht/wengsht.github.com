@@ -1,0 +1,36 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <center>
+        <img width=100% src='./stanley.gif' />
+
+        <div class="p1"> I have been waiting to lie down in a place with hot water running surrounding air conditioning. Red wines. Cozy, light music from speaker.  </div>
+        <br/>
+        <br/>
+        <div class="p2"> That is the life! </div>
+
+        <div class="p3"> clue: How many people in our house? </div>
+            <input class="input1" size=50 height="48" type='text' id='answer1'/>
+            <button class ="button button1" name="submit" onclick="required()" value="Submit" > Enter </button>
+
+
+        </center>
+    </body>
+    <script>
+      function required() {
+        var answer = document.getElementById("answer1").value
+          if (answer== "2" || answer == "two" || answer == "Two") {
+          window.location.href = './bed.html'
+        } else {
+          alert('Wrong!!!Wonrg!!')
+        }
+      }
+document.getElementById("answer1").addEventListener('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        required()
+    }
+});
+    </script>
+</html>
